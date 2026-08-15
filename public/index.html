@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nhimy — Ferramentas digitais simples</title>
+
+  <meta
+    name="description"
+    content="Nhimy oferece ferramentas online gratuitas para tarefas digitais rápidas e simples."
+  >
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="/" class="logo">Nhimy</a>
+
+      <nav>
+        <a href="#tools">Ferramentas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <p class="eyebrow">FERRAMENTAS ONLINE GRATUITAS</p>
+
+        <h1>
+          Resolva tarefas digitais
+          <span>em segundos.</span>
+        </h1>
+
+        <p class="hero-text">
+          Ferramentas simples, rápidas e fáceis de usar,
+          diretamente no seu navegador.
+        </p>
+
+        <div class="search-box">
+          <input
+            id="toolSearch"
+            type="search"
+            placeholder="Pesquisar uma ferramenta..."
+            autocomplete="off"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <section id="tools" class="tools-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="eyebrow">NHIMY TOOLS</p>
+          <h2>Escolha uma ferramenta</h2>
+          <p>
+            Tudo o que você precisa para tarefas digitais do dia a dia.
+          </p>
+        </div>
+
+        <div id="toolsGrid" class="tools-grid">
+
+          <article class="tool-card" data-tool="qr code">
+            <div class="tool-icon">QR</div>
+            <h3>Gerador de QR Code</h3>
+            <p>
+              Crie QR Codes gratuitamente para links, textos e outros dados.
+            </p>
+            <input id="qrInput" type="text" placeholder="Digite um link ou texto..." autocomplete="off">
+            <button id="generateQrButton" type="button">Gerar QR Code</button>
+            <div id="qrMessage"></div>
+            <div id="qrResult" hidden>
+              <img id="qrImage" alt="QR Code gerado">
+              <a id="qrDownload" download="nhimy-qrcode.png">Baixar QR Code</a>
+            </div>
+          </article>
+
+          <article class="tool-card" data-tool="compressor imagem">
+            <div class="tool-icon">IMG</div>
+            <h3>Comprimir imagem</h3>
+            <p>
+              Reduza o tamanho das suas imagens mantendo boa qualidade.
+            </p>
+            <div class="image-compressor">
+              <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp">
+
+              <label for="imageQuality">Qualidade</label>
+              <input id="imageQuality" type="range" min="20" max="100" value="80">
+              <span id="qualityValue">80%</span>
+
+              <button id="compressImageButton" type="button">
+                Comprimir imagem
+              </button>
+
+              <div id="compressMessage"></div>
+
+              <div id="compressResult" hidden>
+                <p id="compressStats"></p>
+                <img id="compressedPreview" alt="Imagem comprimida">
+                <a id="compressedDownload" download="nhimy-imagem-comprimida.jpg">
+                  Baixar imagem comprimida
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tool-card" data-tool="redimensionar imagem">
+            <div class="tool-icon">RES</div>
+            <h3>Redimensionar imagem</h3>
+            <p>
+              Altere rapidamente as dimensões das suas imagens.
+            </p>
+            <div class="image-resizer">
+              <input id="resizeInput" type="file" accept="image/jpeg,image/png,image/webp">
+
+              <div class="resize-fields">
+                <div>
+                  <label for="resizeWidth">Largura (px)</label>
+                  <input id="resizeWidth" type="number" min="1" placeholder="Largura">
+                </div>
+
+                <div>
+                  <label for="resizeHeight">Altura (px)</label>
+                  <input id="resizeHeight" type="number" min="1" placeholder="Altura">
+                </div>
+              </div>
+
+              <label class="resize-proportion">
+                <input id="keepProportion" type="checkbox" checked>
+                Manter proporção
+              </label>
+
+              <button id="resizeImageButton" type="button">
+                Redimensionar imagem
+              </button>
+
+              <div id="resizeMessage"></div>
+
+              <div id="resizeResult" hidden>
+                <img id="resizePreview" alt="Imagem redimensionada">
+                <a id="resizeDownload" download="nhimy-imagem-redimensionada.jpg">
+                  Baixar imagem redimensionada
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tool-card" data-tool="pdf">
+            <div class="tool-icon">PDF</div>
+            <h3>Ferramentas PDF</h3>
+            <p>
+              Trabalhe com documentos PDF diretamente no navegador.
+            </p>
+            <div class="pdf-tool">
+              <input id="pdfImages" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+
+              <button id="createPdfButton" type="button">
+                Criar PDF
+              </button>
+
+              <div id="pdfMessage"></div>
+
+              <div id="pdfResult" hidden>
+                <p id="pdfStats"></p>
+                <a id="pdfDownload" download="nhimy-imagens.pdf">
+                  Baixar PDF
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tool-card" data-tool="senha password">
+            <div class="tool-icon">KEY</div>
+            <h3>Gerador de senhas</h3>
+            <p>
+              Gere senhas fortes e seguras diretamente no seu dispositivo.
+            </p>
+            <div class="password-tool">
+              <label for="passwordLength">Tamanho</label>
+              <input id="passwordLength" type="number" min="4" max="128" value="16">
+
+              <label>
+                <input id="passwordUpper" type="checkbox" checked>
+                Maiúsculas
+              </label>
+
+              <label>
+                <input id="passwordLower" type="checkbox" checked>
+                Minúsculas
+              </label>
+
+              <label>
+                <input id="passwordNumbers" type="checkbox" checked>
+                Números
+              </label>
+
+              <label>
+                <input id="passwordSymbols" type="checkbox" checked>
+                Símbolos
+              </label>
+
+              <button id="generatePasswordButton" type="button">
+                Gerar senha
+              </button>
+
+              <div id="passwordMessage"></div>
+
+              <div id="passwordResult" hidden>
+                <input id="generatedPassword" type="text" readonly>
+                <button id="copyPasswordButton" type="button">
+                  Copiar senha
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p id="noResults" class="no-results" hidden>
+          Nenhuma ferramenta encontrada.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Nhimy. Ferramentas digitais gratuitas.</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+
+</body>
+</html>
