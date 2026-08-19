@@ -1,14 +1,24 @@
+cd ~/nhimy
+
+cat > public/index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nhimy — Ferramentas digitais simples</title>
+  <title>Nhimy — Ferramentas digitais gratuitas</title>
 
   <meta
     name="description"
-    content="Nhimy oferece ferramentas online gratuitas para tarefas digitais rápidas e simples."
+    content="Nhimy reúne ferramentas digitais gratuitas para imagens, PDF, texto, matemática, segurança, estudantes e tarefas do dia a dia."
+  >
+
+  <meta name="theme-color" content="#0b1020">
+
+  <meta
+    name="keywords"
+    content="Nhimy, ferramentas online, QR Code, PDF, imagem, texto, estudante, calculadora, senha"
   >
 
   <link rel="stylesheet" href="/style.css">
@@ -16,230 +26,1261 @@
 
 <body>
 
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
   <header class="site-header">
     <div class="container header-content">
-      <a href="/" class="logo">Nhimy</a>
 
-      <nav>
+      <a href="/" class="logo" aria-label="Nhimy página inicial">
+        <span class="logo-mark">N</span>
+        <span>Nhimy</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
         <a href="#tools">Ferramentas</a>
+        <a href="#student">Estudante</a>
       </nav>
+
     </div>
   </header>
 
+
   <main>
 
-    <section class="hero">
-      <div class="container">
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
 
-        <p class="eyebrow">FERRAMENTAS ONLINE GRATUITAS</p>
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="hero-badge">
+          <span>✦</span>
+          NHIMY TOOLS
+        </div>
 
         <h1>
-          Resolva tarefas digitais
-          <span>em segundos.</span>
+          Ferramentas simples.
+          <span>Resultados rápidos.</span>
         </h1>
 
         <p class="hero-text">
-          Ferramentas simples, rápidas e fáceis de usar,
-          diretamente no seu navegador.
+          Resolva tarefas digitais gratuitamente, diretamente
+          no navegador e sem complicação.
         </p>
 
         <div class="search-box">
+          <span class="search-icon">⌕</span>
+
           <input
             id="toolSearch"
             type="search"
             placeholder="Pesquisar uma ferramenta..."
             autocomplete="off"
+            aria-label="Pesquisar ferramenta"
           >
+        </div>
+
+        <div class="hero-points">
+          <span>✓ Grátis</span>
+          <span>✓ Rápido</span>
+          <span>✓ Fácil de usar</span>
+          <span>✓ No navegador</span>
         </div>
 
       </div>
     </section>
 
+
+    <!-- =====================================================
+         PUBLICIDADE
+         ===================================================== -->
+
+    <section class="ad-section" aria-label="Publicidade">
+      <div class="container">
+
+        <div class="ad-slot" id="topAdSlot">
+          <span>Publicidade</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         FERRAMENTAS
+         ===================================================== -->
+
     <section id="tools" class="tools-section">
+
       <div class="container">
 
         <div class="section-heading">
-          <p class="eyebrow">NHIMY TOOLS</p>
-          <h2>Escolha uma ferramenta</h2>
-          <p>
-            Tudo o que você precisa para tarefas digitais do dia a dia.
-          </p>
+
+          <div>
+            <p class="eyebrow">NHIMY TOOLS</p>
+
+            <h2>
+              Tudo o que você precisa
+            </h2>
+
+            <p>
+              Ferramentas digitais rápidas, gratuitas e fáceis
+              de usar no seu dia a dia.
+            </p>
+          </div>
+
+          <span class="tools-count">
+            12 ferramentas
+          </span>
+
         </div>
+
 
         <div id="toolsGrid" class="tools-grid">
 
-          <article class="tool-card" data-tool="qr code">
-            <div class="tool-icon">QR</div>
-            <h3>Gerador de QR Code</h3>
-            <p>
-              Crie QR Codes gratuitamente para links, textos e outros dados.
-            </p>
-            <input id="qrInput" type="text" placeholder="Digite um link ou texto..." autocomplete="off">
-            <button id="generateQrButton" type="button">Gerar QR Code</button>
-            <div id="qrMessage"></div>
-            <div id="qrResult" hidden>
-              <img id="qrImage" alt="QR Code gerado">
-              <a id="qrDownload" download="nhimy-qrcode.png">Baixar QR Code</a>
+
+          <!-- =================================================
+               QR CODE
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="qr code qr link url"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">QR</div>
+              <span class="tool-tag">POPULAR</span>
             </div>
+
+            <h3>Gerador de QR Code</h3>
+
+            <p>
+              Crie QR Codes gratuitamente para links,
+              textos e outros dados.
+            </p>
+
+            <input
+              id="qrInput"
+              type="text"
+              placeholder="Digite um link ou texto..."
+              autocomplete="off"
+            >
+
+            <button
+              id="generateQrButton"
+              type="button"
+            >
+              Gerar QR Code
+            </button>
+
+            <div id="qrMessage" class="tool-message"></div>
+
+            <div id="qrResult" class="tool-result-area" hidden>
+
+              <img
+                id="qrImage"
+                alt="QR Code gerado"
+              >
+
+              <a
+                id="qrDownload"
+                class="download-link"
+                download="nhimy-qrcode.png"
+              >
+                Baixar QR Code
+              </a>
+
+            </div>
+
           </article>
 
-          <article class="tool-card" data-tool="compressor imagem">
-            <div class="tool-icon">IMG</div>
+
+          <!-- =================================================
+               COMPRESSOR DE IMAGEM
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="compressor imagem comprimir foto reduzir tamanho"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">IMG</div>
+            </div>
+
             <h3>Comprimir imagem</h3>
+
             <p>
-              Reduza o tamanho das suas imagens mantendo boa qualidade.
+              Reduza o tamanho das suas imagens mantendo
+              boa qualidade.
             </p>
+
             <div class="image-compressor">
-              <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp">
 
-              <label for="imageQuality">Qualidade</label>
-              <input id="imageQuality" type="range" min="20" max="100" value="80">
-              <span id="qualityValue">80%</span>
+              <input
+                id="imageInput"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+              >
 
-              <button id="compressImageButton" type="button">
+              <label for="imageQuality">
+                Qualidade
+              </label>
+
+              <div class="range-row">
+
+                <input
+                  id="imageQuality"
+                  type="range"
+                  min="20"
+                  max="100"
+                  value="80"
+                >
+
+                <span id="qualityValue">80%</span>
+
+              </div>
+
+              <button
+                id="compressImageButton"
+                type="button"
+              >
                 Comprimir imagem
               </button>
 
-              <div id="compressMessage"></div>
+              <div id="compressMessage" class="tool-message"></div>
 
               <div id="compressResult" hidden>
+
                 <p id="compressStats"></p>
-                <img id="compressedPreview" alt="Imagem comprimida">
-                <a id="compressedDownload" download="nhimy-imagem-comprimida.jpg">
+
+                <img
+                  id="compressedPreview"
+                  alt="Imagem comprimida"
+                >
+
+                <a
+                  id="compressedDownload"
+                  class="download-link"
+                  download="nhimy-imagem-comprimida.jpg"
+                >
                   Baixar imagem comprimida
                 </a>
+
               </div>
+
             </div>
+
           </article>
 
-          <article class="tool-card" data-tool="redimensionar imagem">
-            <div class="tool-icon">RES</div>
+
+          <!-- =================================================
+               REDIMENSIONAR IMAGEM
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="redimensionar imagem resize tamanho dimensões foto"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">RES</div>
+            </div>
+
             <h3>Redimensionar imagem</h3>
+
             <p>
               Altere rapidamente as dimensões das suas imagens.
             </p>
+
             <div class="image-resizer">
-              <input id="resizeInput" type="file" accept="image/jpeg,image/png,image/webp">
+
+              <input
+                id="resizeInput"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+              >
 
               <div class="resize-fields">
+
                 <div>
-                  <label for="resizeWidth">Largura (px)</label>
-                  <input id="resizeWidth" type="number" min="1" placeholder="Largura">
+                  <label for="resizeWidth">
+                    Largura (px)
+                  </label>
+
+                  <input
+                    id="resizeWidth"
+                    type="number"
+                    min="1"
+                    placeholder="Largura"
+                  >
                 </div>
 
                 <div>
-                  <label for="resizeHeight">Altura (px)</label>
-                  <input id="resizeHeight" type="number" min="1" placeholder="Altura">
+                  <label for="resizeHeight">
+                    Altura (px)
+                  </label>
+
+                  <input
+                    id="resizeHeight"
+                    type="number"
+                    min="1"
+                    placeholder="Altura"
+                  >
                 </div>
+
               </div>
 
               <label class="resize-proportion">
-                <input id="keepProportion" type="checkbox" checked>
+
+                <input
+                  id="keepProportion"
+                  type="checkbox"
+                  checked
+                >
+
                 Manter proporção
+
               </label>
 
-              <button id="resizeImageButton" type="button">
+              <button
+                id="resizeImageButton"
+                type="button"
+              >
                 Redimensionar imagem
               </button>
 
-              <div id="resizeMessage"></div>
+              <div id="resizeMessage" class="tool-message"></div>
 
               <div id="resizeResult" hidden>
-                <img id="resizePreview" alt="Imagem redimensionada">
-                <a id="resizeDownload" download="nhimy-imagem-redimensionada.jpg">
+
+                <img
+                  id="resizePreview"
+                  alt="Imagem redimensionada"
+                >
+
+                <a
+                  id="resizeDownload"
+                  class="download-link"
+                  download="nhimy-imagem-redimensionada.jpg"
+                >
                   Baixar imagem redimensionada
                 </a>
+
               </div>
+
             </div>
+
           </article>
 
-          <article class="tool-card" data-tool="pdf">
-            <div class="tool-icon">PDF</div>
-            <h3>Ferramentas PDF</h3>
-            <p>
-              Trabalhe com documentos PDF diretamente no navegador.
-            </p>
-            <div class="pdf-tool">
-              <input id="pdfImages" type="file" accept="image/jpeg,image/png,image/webp" multiple>
 
-              <button id="createPdfButton" type="button">
+          <!-- =================================================
+               PDF
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="pdf documento imagens pdf converter criar pdf"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">PDF</div>
+            </div>
+
+            <h3>Ferramentas PDF</h3>
+
+            <p>
+              Transforme imagens em documentos PDF
+              diretamente no navegador.
+            </p>
+
+            <div class="pdf-tool">
+
+              <input
+                id="pdfImages"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+              >
+
+              <button
+                id="createPdfButton"
+                type="button"
+              >
                 Criar PDF
               </button>
 
-              <div id="pdfMessage"></div>
+              <div id="pdfMessage" class="tool-message"></div>
 
               <div id="pdfResult" hidden>
+
                 <p id="pdfStats"></p>
-                <a id="pdfDownload" download="nhimy-imagens.pdf">
+
+                <a
+                  id="pdfDownload"
+                  class="download-link"
+                  download="nhimy-imagens.pdf"
+                >
                   Baixar PDF
                 </a>
+
               </div>
+
             </div>
+
           </article>
 
-          <article class="tool-card" data-tool="senha password">
-            <div class="tool-icon">KEY</div>
+
+          <!-- =================================================
+               SENHAS
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="senha password segurança gerador senha forte"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">KEY</div>
+              <span class="tool-tag">SEGURANÇA</span>
+            </div>
+
             <h3>Gerador de senhas</h3>
+
             <p>
-              Gere senhas fortes e seguras diretamente no seu dispositivo.
+              Gere senhas fortes e seguras diretamente
+              no seu dispositivo.
             </p>
+
             <div class="password-tool">
-              <label for="passwordLength">Tamanho</label>
-              <input id="passwordLength" type="number" min="4" max="128" value="16">
+
+              <label for="passwordLength">
+                Tamanho
+              </label>
+
+              <input
+                id="passwordLength"
+                type="number"
+                min="4"
+                max="128"
+                value="16"
+              >
 
               <label>
-                <input id="passwordUpper" type="checkbox" checked>
+                <input
+                  id="passwordUpper"
+                  type="checkbox"
+                  checked
+                >
                 Maiúsculas
               </label>
 
               <label>
-                <input id="passwordLower" type="checkbox" checked>
+                <input
+                  id="passwordLower"
+                  type="checkbox"
+                  checked
+                >
                 Minúsculas
               </label>
 
               <label>
-                <input id="passwordNumbers" type="checkbox" checked>
+                <input
+                  id="passwordNumbers"
+                  type="checkbox"
+                  checked
+                >
                 Números
               </label>
 
               <label>
-                <input id="passwordSymbols" type="checkbox" checked>
+                <input
+                  id="passwordSymbols"
+                  type="checkbox"
+                  checked
+                >
                 Símbolos
               </label>
 
-              <button id="generatePasswordButton" type="button">
+              <button
+                id="generatePasswordButton"
+                type="button"
+              >
                 Gerar senha
               </button>
 
-              <div id="passwordMessage"></div>
+              <div id="passwordMessage" class="tool-message"></div>
 
               <div id="passwordResult" hidden>
-                <input id="generatedPassword" type="text" readonly>
-                <button id="copyPasswordButton" type="button">
+
+                <input
+                  id="generatedPassword"
+                  type="text"
+                  readonly
+                  aria-label="Senha gerada"
+                >
+
+                <button
+                  id="copyPasswordButton"
+                  type="button"
+                >
                   Copiar senha
                 </button>
+
               </div>
+
             </div>
+
           </article>
+
+
+          <!-- =================================================
+               CONTADOR DE TEXTO
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="contador palavras caracteres texto word count letras"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">TXT</div>
+            </div>
+
+            <h3>Contador de texto</h3>
+
+            <p>
+              Conte palavras, caracteres, linhas e espaços
+              rapidamente.
+            </p>
+
+            <div class="text-counter-tool">
+
+              <textarea
+                id="textCounterInput"
+                rows="7"
+                placeholder="Digite ou cole seu texto aqui..."
+              ></textarea>
+
+              <div class="counter-stats">
+
+                <div>
+                  <strong id="wordCount">0</strong>
+                  <span>Palavras</span>
+                </div>
+
+                <div>
+                  <strong id="characterCount">0</strong>
+                  <span>Caracteres</span>
+                </div>
+
+                <div>
+                  <strong id="lineCount">0</strong>
+                  <span>Linhas</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               CONVERSOR DE TEXTO
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="texto maiúsculas minúsculas uppercase lowercase converter texto"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">Aa</div>
+            </div>
+
+            <h3>Conversor de texto</h3>
+
+            <p>
+              Transforme textos em maiúsculas, minúsculas
+              ou formato de título.
+            </p>
+
+            <div class="text-transform-tool">
+
+              <textarea
+                id="textTransformInput"
+                rows="6"
+                placeholder="Digite ou cole seu texto..."
+              ></textarea>
+
+              <div class="button-group">
+
+                <button
+                  id="uppercaseButton"
+                  type="button"
+                >
+                  MAIÚSCULAS
+                </button>
+
+                <button
+                  id="lowercaseButton"
+                  type="button"
+                >
+                  minúsculas
+                </button>
+
+                <button
+                  id="titlecaseButton"
+                  type="button"
+                >
+                  Título
+                </button>
+
+                <button
+                  id="clearTextButton"
+                  type="button"
+                >
+                  Limpar
+                </button>
+
+              </div>
+
+              <button
+                id="copyTransformedTextButton"
+                type="button"
+              >
+                Copiar texto
+              </button>
+
+              <div id="textTransformMessage" class="tool-message"></div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               PORCENTAGEM
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="calculadora porcentagem percentagem matemática desconto aumento"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">%</div>
+            </div>
+
+            <h3>Calculadora de porcentagem</h3>
+
+            <p>
+              Calcule porcentagens, descontos e aumentos
+              de forma rápida.
+            </p>
+
+            <div class="percentage-tool">
+
+              <label for="percentageValue">
+                Valor
+              </label>
+
+              <input
+                id="percentageValue"
+                type="number"
+                placeholder="Ex.: 500"
+              >
+
+              <label for="percentageRate">
+                Porcentagem
+              </label>
+
+              <input
+                id="percentageRate"
+                type="number"
+                placeholder="Ex.: 20"
+              >
+
+              <button
+                id="calculatePercentageButton"
+                type="button"
+              >
+                Calcular
+              </button>
+
+              <div
+                id="percentageResult"
+                class="tool-result"
+                hidden
+              ></div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               CONVERSOR DE UNIDADES
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="conversor unidades comprimento peso temperatura metros quilogramas celsius"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">CONV</div>
+            </div>
+
+            <h3>Conversor de unidades</h3>
+
+            <p>
+              Converta medidas de comprimento, peso e
+              temperatura rapidamente.
+            </p>
+
+            <div class="unit-converter">
+
+              <label for="unitCategory">
+                Categoria
+              </label>
+
+              <select id="unitCategory">
+
+                <option value="length">
+                  Comprimento
+                </option>
+
+                <option value="weight">
+                  Peso
+                </option>
+
+                <option value="temperature">
+                  Temperatura
+                </option>
+
+              </select>
+
+              <label for="unitValue">
+                Valor
+              </label>
+
+              <input
+                id="unitValue"
+                type="number"
+                placeholder="Digite um valor"
+              >
+
+              <div class="unit-fields">
+
+                <div>
+                  <label for="unitFrom">
+                    De
+                  </label>
+
+                  <select id="unitFrom"></select>
+                </div>
+
+                <div>
+                  <label for="unitTo">
+                    Para
+                  </label>
+
+                  <select id="unitTo"></select>
+                </div>
+
+              </div>
+
+              <button
+                id="convertUnitButton"
+                type="button"
+              >
+                Converter
+              </button>
+
+              <div
+                id="unitResult"
+                class="tool-result"
+                hidden
+              ></div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               URL
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="url encoder decoder codificar decodificar link endereço internet"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">URL</div>
+            </div>
+
+            <h3>Codificador de URL</h3>
+
+            <p>
+              Codifique ou decodifique textos e parâmetros
+              usados em URLs.
+            </p>
+
+            <div class="url-tool">
+
+              <textarea
+                id="urlInput"
+                rows="5"
+                placeholder="Digite ou cole o texto ou URL..."
+              ></textarea>
+
+              <div class="button-group">
+
+                <button
+                  id="encodeUrlButton"
+                  type="button"
+                >
+                  Codificar
+                </button>
+
+                <button
+                  id="decodeUrlButton"
+                  type="button"
+                >
+                  Decodificar
+                </button>
+
+              </div>
+
+              <textarea
+                id="urlOutput"
+                rows="5"
+                readonly
+                placeholder="Resultado..."
+              ></textarea>
+
+              <button
+                id="copyUrlButton"
+                type="button"
+              >
+                Copiar resultado
+              </button>
+
+              <div id="urlMessage" class="tool-message"></div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               JSON
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="json formatador formatar validar código developer programação"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">{}</div>
+              <span class="tool-tag">DEV</span>
+            </div>
+
+            <h3>Formatador JSON</h3>
+
+            <p>
+              Formate, organize e valide dados JSON
+              diretamente no navegador.
+            </p>
+
+            <div class="json-tool">
+
+              <textarea
+                id="jsonInput"
+                rows="8"
+                placeholder="Cole seu JSON aqui..."
+              ></textarea>
+
+              <div class="button-group">
+
+                <button
+                  id="formatJsonButton"
+                  type="button"
+                >
+                  Formatar
+                </button>
+
+                <button
+                  id="minifyJsonButton"
+                  type="button"
+                >
+                  Compactar
+                </button>
+
+                <button
+                  id="clearJsonButton"
+                  type="button"
+                >
+                  Limpar
+                </button>
+
+              </div>
+
+              <textarea
+                id="jsonOutput"
+                rows="8"
+                readonly
+                placeholder="Resultado..."
+              ></textarea>
+
+              <button
+                id="copyJsonButton"
+                type="button"
+              >
+                Copiar JSON
+              </button>
+
+              <div id="jsonMessage" class="tool-message"></div>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               GERADOR DE TEXTO
+               ================================================= -->
+
+          <article
+            class="tool-card"
+            data-tool="gerador texto lorem ipsum placeholder conteúdo"
+          >
+
+            <div class="tool-card-top">
+              <div class="tool-icon">GEN</div>
+            </div>
+
+            <h3>Gerador de texto</h3>
+
+            <p>
+              Gere texto de exemplo para testes, projetos
+              e preenchimento de páginas.
+            </p>
+
+            <div class="text-generator-tool">
+
+              <label for="textGeneratorLength">
+                Quantidade de palavras
+              </label>
+
+              <input
+                id="textGeneratorLength"
+                type="number"
+                min="1"
+                max="500"
+                value="50"
+              >
+
+              <button
+                id="generateTextButton"
+                type="button"
+              >
+                Gerar texto
+              </button>
+
+              <textarea
+                id="generatedText"
+                rows="8"
+                readonly
+                placeholder="O texto gerado aparecerá aqui..."
+              ></textarea>
+
+              <button
+                id="copyGeneratedTextButton"
+                type="button"
+              >
+                Copiar texto
+              </button>
+
+              <div id="textGeneratorMessage" class="tool-message"></div>
+
+            </div>
+
+          </article>
+
 
         </div>
 
-        <p id="noResults" class="no-results" hidden>
+
+        <p
+          id="noResults"
+          class="no-results"
+          hidden
+        >
           Nenhuma ferramenta encontrada.
         </p>
 
       </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PUBLICIDADE
+         ===================================================== -->
+
+    <section
+      class="ad-section ad-section-middle"
+      aria-label="Publicidade"
+    >
+
+      <div class="container">
+
+        <div
+          class="ad-slot"
+          id="middleAdSlot"
+        >
+          <span>Publicidade</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NHIMY ESTUDANTE
+         ===================================================== -->
+
+    <section
+      id="student"
+      class="student-section"
+    >
+
+      <div class="container">
+
+        <div class="student-hero">
+
+          <div>
+
+            <p class="eyebrow">
+              NHIMY ESTUDANTE
+            </p>
+
+            <h2>
+              Um espaço para
+              <span>estudar melhor.</span>
+            </h2>
+
+            <p>
+              Ferramentas pensadas para estudantes organizarem
+              trabalhos, textos, estudos e tarefas escolares.
+            </p>
+
+          </div>
+
+          <div class="student-badge">
+            📚
+          </div>
+
+        </div>
+
+
+        <div class="student-grid">
+
+          <article class="student-feature">
+            <div class="student-feature-icon">📝</div>
+
+            <h3>Trabalhos escolares</h3>
+
+            <p>
+              Organize textos, conte palavras, transforme
+              conteúdo e prepare documentos.
+            </p>
+          </article>
+
+
+          <article class="student-feature">
+            <div class="student-feature-icon">🧠</div>
+
+            <h3>Estudo e aprendizagem</h3>
+
+            <p>
+              Uma área preparada para futuras ferramentas
+              de apoio à aprendizagem.
+            </p>
+          </article>
+
+
+          <article class="student-feature">
+            <div class="student-feature-icon">📊</div>
+
+            <h3>Organização</h3>
+
+            <p>
+              Recursos para ajudar a organizar informações,
+              tarefas e atividades acadêmicas.
+            </p>
+          </article>
+
+
+          <article class="student-feature ai-feature">
+            <div class="student-feature-icon">🤖</div>
+
+            <span class="tool-tag">
+              PRÓXIMA FASE
+            </span>
+
+            <h3>Assistente IA</h3>
+
+            <p>
+              O futuro assistente do Nhimy Estudante será
+              desenvolvido para apoiar o aluno nos estudos.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="student-note">
+
+          <strong>🚀 Nhimy está evoluindo.</strong>
+
+          <span>
+            A área Estudante será ampliada com novas ferramentas
+            e recursos de inteligência artificial.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MONETIZAÇÃO
+         ===================================================== -->
+
+    <section class="ad-section ad-section-final" aria-label="Publicidade">
+
+      <div class="container">
+
+        <div
+          class="ad-slot"
+          id="bottomAdSlot"
+        >
+          <span>Publicidade</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="final-cta">
+
+      <div class="container">
+
+        <div class="cta-card">
+
+          <p class="eyebrow">
+            NHIMY
+          </p>
+
+          <h2>
+            Ferramentas úteis,
+            sem complicação.
+          </h2>
+
+          <p>
+            Continue explorando as ferramentas gratuitas
+            disponíveis no Nhimy.
+          </p>
+
+          <a href="#tools" class="cta-button">
+            Explorar ferramentas
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
 
   </main>
 
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 Nhimy. Ferramentas digitais gratuitas.</p>
+
+    <div class="container footer-content">
+
+      <div>
+
+        <a
+          href="/"
+          class="footer-logo"
+        >
+          Nhimy
+        </a>
+
+        <p>
+          Ferramentas digitais simples para todos.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#tools">
+          Ferramentas
+        </a>
+
+        <a href="#student">
+          Nhimy Estudante
+        </a>
+
+      </div>
+
+
+      <div class="footer-copy">
+
+        <p>
+          © 2026 Nhimy.
+        </p>
+
+        <p>
+          Ferramentas digitais gratuitas.
+        </p>
+
+      </div>
+
     </div>
+
   </footer>
+
 
   <script src="/app.js"></script>
 
 </body>
 </html>
+EOF
