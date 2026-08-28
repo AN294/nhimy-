@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Nhimy Organizar — defina e acompanhe suas metas acadêmicas."
+  >
+
+  <title>Metas — Nhimy</title>
+
+  <link rel="stylesheet" href="/css/base/variables.css">
+  <link rel="stylesheet" href="/css/base/reset.css">
+  <link rel="stylesheet" href="/css/base/typography.css">
+
+  <link rel="stylesheet" href="/css/layout/container.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/sections.css">
+
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/cards.css">
+  <link rel="stylesheet" href="/css/components/forms.css">
+  <link rel="stylesheet" href="/css/components/messages.css">
+
+  <link rel="stylesheet" href="/organizar/metas/style.css">
+</head>
+
+<body class="organize-goals-page">
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="/" class="brand" aria-label="Nhimy">
+        <span class="brand-name">Nhimy</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="/">Estudante</a>
+        <a href="/estudar/">Estudar</a>
+        <a href="/trabalhos/">Trabalhos</a>
+        <a href="/organizar/" class="active">Organizar</a>
+        <a href="/ferramentas/">Ferramentas</a>
+      </nav>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="student-hero goals-hero">
+      <div class="container hero-content">
+
+        <a class="back-link" href="/organizar/">
+          ← Organizar
+        </a>
+
+        <span class="section-kicker organize-kicker">
+          Metas
+        </span>
+
+        <h1>O que você quer alcançar?</h1>
+
+        <p>
+          Defina objetivos acadêmicos, acompanhe seu progresso
+          e mantenha seus estudos na direção certa.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="student-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-kicker organize-kicker">
+            Nova meta
+          </span>
+
+          <h2>Definir uma meta</h2>
+        </div>
+
+
+        <form id="goal-form" class="goal-form">
+
+          <div class="form-grid form-grid-2">
+
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="goal-title"
+              >
+                Meta
+              </label>
+
+              <input
+                id="goal-title"
+                name="title"
+                type="text"
+                maxlength="200"
+                placeholder="Ex.: melhorar minha nota em Biologia"
+                required
+              >
+            </div>
+
+
+            <div class="form-group">
+              <label
+                class="form-label"
+                for="goal-target-date"
+              >
+                Data-alvo
+              </label>
+
+              <input
+                id="goal-target-date"
+                name="targetDate"
+                type="date"
+              >
+            </div>
+
+          </div>
+
+
+          <div class="form-group goal-description-group">
+
+            <label
+              class="form-label"
+              for="goal-description"
+            >
+              Descrição
+            </label>
+
+            <textarea
+              id="goal-description"
+              name="description"
+              maxlength="1000"
+              placeholder="Descreva o que você pretende alcançar."
+            ></textarea>
+
+            <small class="form-help">
+              Uma descrição pode ajudar você a deixar a meta mais clara.
+            </small>
+
+          </div>
+
+
+          <div class="goal-form-actions">
+
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
+              Adicionar meta
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+
+    <section class="student-section">
+      <div class="container">
+
+        <div class="section-heading goal-list-heading">
+
+          <div>
+            <span class="section-kicker organize-kicker">
+              Minhas metas
+            </span>
+
+            <h2>Metas</h2>
+          </div>
+
+          <span
+            id="goal-count"
+            class="goal-count"
+          >
+            0 metas
+          </span>
+
+        </div>
+
+
+        <div
+          id="goal-list"
+          class="goal-list"
+        ></div>
+
+
+        <div
+          id="goal-empty"
+          class="message message-info goal-empty"
+          hidden
+        >
+
+          <span
+            class="message-icon"
+            aria-hidden="true"
+          >
+            🎯
+          </span>
+
+          <div class="message-content">
+
+            <strong class="message-title">
+              Nenhuma meta definida.
+            </strong>
+
+            <span class="message-text">
+              Crie sua primeira meta para começar a acompanhar
+              o que deseja alcançar.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <script type="module" src="/js/core/app.js"></script>
+  <script type="module" src="/organizar/metas/app.js"></script>
+
+</body>
+</html>

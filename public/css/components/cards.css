@@ -1,0 +1,266 @@
+/* =====================================================
+   NHIMY — CARDS
+   Componentes principais da experiência
+   ===================================================== */
+
+.action-grid,
+.feature-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* =====================================================
+   ACTION CARDS
+   Estudar / Trabalhos / Organizar
+   ===================================================== */
+
+.action-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  min-height: 82px;
+  padding: var(--space-4);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-card:active {
+  transform: scale(0.99);
+}
+
+.action-icon {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--student-purple-soft);
+
+  font-size: 1.35rem;
+}
+
+.action-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.action-content strong {
+  color: var(--text);
+  font-size: var(--font-size-md);
+}
+
+.action-content small {
+  color: var(--text-muted);
+}
+
+.action-arrow {
+  margin-left: auto;
+
+  color: var(--student-purple);
+  font-size: 1.2rem;
+}
+
+/* =====================================================
+   FEATURE CARDS
+   ===================================================== */
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 150px;
+  padding: var(--space-5);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.feature-card > span {
+  display: block;
+
+  margin-bottom: var(--space-4);
+
+  font-size: 1.35rem;
+}
+
+.feature-card strong {
+  color: var(--text);
+}
+
+.feature-card small {
+  margin-top: var(--space-2);
+  color: var(--text-muted);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(124, 58, 237, 0.25);
+}
+
+/* =====================================================
+   CONTINUE CARD
+   ===================================================== */
+
+.continue-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+
+  padding: var(--space-6);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--student-purple-soft),
+      var(--surface)
+    );
+
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  border-radius: var(--radius-xl);
+}
+
+.continue-card h2 {
+  margin-top: var(--space-2);
+}
+
+.continue-card p {
+  max-width: 620px;
+  margin-top: var(--space-3);
+}
+
+.continue-icon {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  background: var(--student-purple);
+  color: #ffffff;
+
+  font-size: 1.2rem;
+}
+
+/* =====================================================
+   INTELLIGENCE CARD
+   ===================================================== */
+
+.intelligence-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+
+  padding: var(--space-6);
+
+  background: var(--text);
+  color: #ffffff;
+
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.intelligence-card h2 {
+  color: #ffffff;
+  margin-top: var(--space-2);
+}
+
+.intelligence-card p {
+  margin-top: var(--space-3);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.intelligence-icon {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  background: var(--student-purple);
+  color: #ffffff;
+
+  font-size: 1.25rem;
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (min-width: 600px) {
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 900px) {
+
+  .action-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .action-card {
+    min-height: 150px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-arrow {
+    margin-top: auto;
+    margin-left: 0;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+}

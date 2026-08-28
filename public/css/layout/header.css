@@ -1,0 +1,228 @@
+/* =====================================================
+   NHIMY — HEADER
+   Responsivo: mobile + desktop
+   ===================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  width: min(
+    calc(100% - 32px),
+    var(--container-lg)
+  );
+
+  min-height: 64px;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+
+  min-width: 0;
+
+  color: var(--text);
+  font-weight: 800;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: var(--space-6);
+  margin-left: auto;
+}
+
+.desktop-nav a {
+  position: relative;
+
+  padding: var(--space-2) 0;
+
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+
+  transition:
+    color var(--transition),
+    opacity var(--transition);
+}
+
+.desktop-nav a:hover {
+  color: var(--nhimy-blue);
+}
+
+.desktop-nav a.active {
+  color: var(--student-purple);
+}
+
+.menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--surface-soft);
+  color: var(--text);
+
+  font-size: 1.15rem;
+
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.menu-button:hover {
+  background: var(--student-purple-soft);
+}
+
+.menu-button:active {
+  transform: scale(0.96);
+}
+
+/* =====================================================
+   MOBILE BOTTOM NAVIGATION
+   ===================================================== */
+
+.mobile-bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  min-height: 64px;
+
+  padding:
+    var(--space-2)
+    var(--space-2)
+    calc(var(--space-2) + env(safe-area-inset-bottom));
+
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.mobile-bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+
+  min-width: 0;
+
+  color: var(--text-muted);
+
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+
+  border-radius: var(--radius-md);
+
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+
+.mobile-bottom-nav a span {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.mobile-bottom-nav a small {
+  font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+.mobile-bottom-nav a:hover {
+  color: var(--student-purple);
+  background: var(--student-purple-soft);
+}
+
+.mobile-bottom-nav a.active {
+  color: var(--student-purple);
+}
+
+
+/* =====================================================
+   MOBILE CONTENT OFFSET
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+  main {
+    padding-bottom: 88px;
+  }
+
+}
+
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 768px) {
+
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .mobile-bottom-nav {
+    display: none;
+  }
+
+}
+
+/* =====================================================
+   DESKTOP MAIOR
+   ===================================================== */
+
+@media (min-width: 1100px) {
+
+  .header-inner {
+    min-height: 76px;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+  }
+
+}

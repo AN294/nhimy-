@@ -1,0 +1,166 @@
+/* =====================================================
+   NHIMY — MESSAGES
+   Feedback visual da aplicação
+   ===================================================== */
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+
+  width: 100%;
+
+  padding: var(--space-4);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  font-size: var(--font-size-sm);
+}
+
+.message-icon {
+  flex: 0 0 auto;
+
+  font-size: 1.1rem;
+}
+
+.message-content {
+  min-width: 0;
+}
+
+.message-title {
+  display: block;
+
+  margin-bottom: var(--space-1);
+
+  color: var(--text);
+  font-weight: 800;
+}
+
+.message-text {
+  color: var(--text-secondary);
+}
+
+/* =====================================================
+   SUCESSO
+   ===================================================== */
+
+.message-success {
+  border-color: rgba(22, 163, 74, 0.22);
+  background: rgba(22, 163, 74, 0.06);
+}
+
+.message-success .message-icon {
+  color: var(--success);
+}
+
+/* =====================================================
+   AVISO
+   ===================================================== */
+
+.message-warning {
+  border-color: rgba(217, 119, 6, 0.22);
+  background: rgba(217, 119, 6, 0.06);
+}
+
+.message-warning .message-icon {
+  color: var(--warning);
+}
+
+/* =====================================================
+   ERRO
+   ===================================================== */
+
+.message-error {
+  border-color: rgba(220, 38, 38, 0.22);
+  background: rgba(220, 38, 38, 0.06);
+}
+
+.message-error .message-icon {
+  color: var(--danger);
+}
+
+/* =====================================================
+   INFORMAÇÃO
+   ===================================================== */
+
+.message-info {
+  border-color: rgba(37, 99, 235, 0.20);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.message-info .message-icon {
+  color: var(--nhimy-blue);
+}
+
+/* =====================================================
+   TOAST
+   ===================================================== */
+
+.toast-container {
+  position: fixed;
+
+  right: var(--space-4);
+  bottom: var(--space-4);
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  width: min(
+    calc(100vw - var(--space-8)),
+    380px
+  );
+
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+
+  padding: var(--space-4);
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-lg);
+
+  color: var(--text);
+
+  animation: toast-in 220ms ease both;
+}
+
+@keyframes toast-in {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 599px) {
+
+  .toast-container {
+    right: var(--space-3);
+    bottom: var(--space-3);
+
+    width: calc(100vw - var(--space-6));
+  }
+
+}

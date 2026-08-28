@@ -1,0 +1,225 @@
+/* =========================================================
+   NHIMY — ORGANIZAR / TAREFAS
+   Interface de gerenciamento de tarefas
+   ========================================================= */
+
+.organize-tasks-page {
+  --organize-accent: var(--success);
+  --organize-accent-soft: rgba(16, 185, 129, 0.10);
+}
+
+.organize-kicker {
+  color: var(--organize-accent);
+}
+
+.tasks-hero {
+  padding-bottom: var(--space-8);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-5);
+
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.back-link:hover {
+  color: var(--organize-accent);
+}
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.task-form {
+  padding: var(--space-6);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.task-form-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: var(--space-5);
+}
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.task-list-heading {
+  align-items: center;
+}
+
+.task-count {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* =========================================================
+   ITEM
+   ========================================================= */
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  padding: var(--space-4);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    opacity var(--transition);
+}
+
+.task-item:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+.task-check {
+  flex: 0 0 auto;
+}
+
+.task-toggle {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+
+  padding: 0;
+
+  border: 2px solid var(--organize-accent);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--organize-accent);
+
+  font-weight: 800;
+}
+
+.task-toggle:hover {
+  background: var(--organize-accent-soft);
+}
+
+.task-main {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  flex: 1;
+}
+
+.task-title {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.task-due {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  flex: 0 0 auto;
+}
+
+.task-item.is-completed {
+  opacity: 0.68;
+}
+
+.task-item.is-completed .task-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.task-item.is-completed .task-toggle {
+  background: var(--organize-accent);
+  color: #ffffff;
+}
+
+/* =========================================================
+   ESTADO VAZIO
+   ========================================================= */
+
+.task-empty {
+  margin-top: var(--space-4);
+}
+
+.task-empty[hidden] {
+  display: none;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  .task-form {
+    padding: var(--space-4);
+  }
+
+  .task-form-actions {
+    justify-content: stretch;
+  }
+
+  .task-form-actions .btn {
+    width: 100%;
+  }
+
+  .task-item {
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-actions .btn {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+  .task-form {
+    max-width: 920px;
+  }
+
+}

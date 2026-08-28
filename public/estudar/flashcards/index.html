@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Nhimy Flashcards — revise conteúdos de forma prática."
+  >
+
+  <title>Flashcards — Nhimy</title>
+
+  <link rel="stylesheet" href="/css/base/variables.css">
+  <link rel="stylesheet" href="/css/base/reset.css">
+  <link rel="stylesheet" href="/css/base/typography.css">
+
+  <link rel="stylesheet" href="/css/layout/container.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/sections.css">
+
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/forms.css">
+  <link rel="stylesheet" href="/css/components/messages.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="/" class="brand" aria-label="Nhimy">
+        <span class="brand-name">Nhimy</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="/">Estudante</a>
+        <a href="/estudar/" class="active">Estudar</a>
+        <a href="/trabalhos/">Trabalhos</a>
+        <a href="/organizar/">Organizar</a>
+        <a href="/ferramentas/">Ferramentas</a>
+      </nav>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="student-hero">
+      <div class="container hero-content">
+
+        <span class="section-kicker">Flashcards</span>
+
+        <h1>Revise de forma mais inteligente.</h1>
+
+        <p>
+          Transforme o conteúdo que você estudou
+          em perguntas para testar sua memória.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="student-section">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">Começar</span>
+
+          <h2>Seus flashcards</h2>
+
+          <p>
+            O conteúdo preparado pelo Nhimy aparecerá aqui.
+          </p>
+
+        </div>
+
+
+        <div class="message message-info">
+
+          <span class="message-icon" aria-hidden="true">✦</span>
+
+          <div class="message-content">
+
+            <strong class="message-title">
+              Flashcards preparados a partir do seu estudo.
+            </strong>
+
+            <span class="message-text">
+              Nesta etapa vamos transformar o material
+              em perguntas e respostas para revisão.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="flashcard-area">
+
+          <div class="flashcard-progress">
+            <span id="flashcardProgress">Card 1 de 1</span>
+          </div>
+
+          <article class="flashcard" id="flashcard">
+
+            <div class="flashcard-label">
+              Pergunta
+            </div>
+
+            <div
+              class="flashcard-question"
+              id="flashcardQuestion"
+            >
+              Prepare seu primeiro flashcard.
+            </div>
+
+            <div
+              class="flashcard-answer"
+              id="flashcardAnswer"
+              hidden
+            >
+              A resposta aparecerá aqui.
+            </div>
+
+          </article>
+
+          <div class="flashcard-actions">
+
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="flashcardBack"
+            >
+              Voltar
+            </button>
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="flashcardStart"
+            >
+              Mostrar resposta
+            </button>
+
+            <a
+              href="/estudar/quiz/"
+              class="btn btn-primary"
+              id="flashcardQuiz"
+              hidden
+            >
+              Testar no Quiz →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+  <script type="module" src="/estudar/flashcards/app.js"></script>
+
+</body>
+</html>

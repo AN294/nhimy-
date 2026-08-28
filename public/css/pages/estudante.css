@@ -1,0 +1,277 @@
+/* =====================================================
+   NHIMY ESTUDANTE
+   Experiência principal do estudante
+   ===================================================== */
+
+/* =====================================================
+   IDENTIDADE
+   ===================================================== */
+
+.student-page {
+  --student-accent: var(--student-purple);
+  --student-accent-soft: var(--student-purple-soft);
+}
+
+/* =====================================================
+   SEÇÕES
+   ===================================================== */
+
+.student-section {
+  padding-block: var(--space-10);
+}
+
+.student-section + .student-section {
+  border-top: 1px solid var(--border);
+}
+
+.student-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  margin-bottom: var(--space-6);
+}
+
+.student-section-header h2 {
+  margin: 0;
+}
+
+.student-section-header p {
+  max-width: 600px;
+  margin-top: var(--space-2);
+}
+
+/* =====================================================
+   TÍTULOS DE ÁREA
+   ===================================================== */
+
+.student-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-3);
+
+  color: var(--student-accent);
+
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.student-title {
+  color: var(--text);
+}
+
+.student-title strong {
+  color: var(--student-accent);
+}
+
+/* =====================================================
+   ÁREAS PRINCIPAIS
+   ===================================================== */
+
+.study-area,
+.work-area,
+.organize-area {
+  scroll-margin-top: 90px;
+}
+
+/* =====================================================
+   ESTUDAR
+   ===================================================== */
+
+.study-area .action-icon {
+  background: var(--student-purple-soft);
+  color: var(--student-purple);
+}
+
+/* =====================================================
+   TRABALHOS
+   ===================================================== */
+
+.work-area .action-icon {
+  background: rgba(37, 99, 235, 0.10);
+  color: var(--nhimy-blue);
+}
+
+/* =====================================================
+   ORGANIZAR
+   ===================================================== */
+
+.organize-area .action-icon {
+  background: rgba(16, 185, 129, 0.10);
+  color: var(--success);
+}
+
+/* =====================================================
+   CONTINUAÇÃO
+   ===================================================== */
+
+.student-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  margin-top: var(--space-5);
+}
+
+.student-progress-bar {
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  background: rgba(124, 58, 237, 0.10);
+  border-radius: 999px;
+}
+
+.student-progress-value {
+  display: block;
+
+  width: var(--progress, 0%);
+
+  height: 100%;
+
+  background: var(--student-purple);
+  border-radius: inherit;
+
+  transition: width 400ms ease;
+}
+
+.student-progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* =====================================================
+   ASSISTENTE
+   A IA permanece como camada de inteligência
+   ===================================================== */
+
+.student-assistant {
+  position: relative;
+  overflow: hidden;
+}
+
+.student-assistant::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  top: -120px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(124, 58, 237, 0.10);
+
+  pointer-events: none;
+}
+
+.student-assistant-content {
+  position: relative;
+  z-index: 1;
+}
+
+.student-assistant-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-3);
+
+  color: var(--student-purple);
+
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 599px) {
+
+  .student-section {
+    padding-block: var(--space-8);
+  }
+
+  .student-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .student-section-header p {
+    margin-top: var(--space-2);
+  }
+
+  .continue-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .intelligence-card {
+    flex-direction: column;
+  }
+
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (min-width: 600px) and (max-width: 899px) {
+
+  .student-section {
+    padding-block: var(--space-10);
+  }
+
+}
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 900px) {
+
+  .student-section {
+    padding-block: var(--space-12);
+  }
+
+  .student-section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .study-area,
+  .work-area,
+  .organize-area {
+    scroll-margin-top: 110px;
+  }
+
+}
+
+/* =====================================================
+   ACESSIBILIDADE
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .student-progress-value,
+  .action-card,
+  .feature-card,
+  .tools-link {
+    transition: none;
+  }
+
+}

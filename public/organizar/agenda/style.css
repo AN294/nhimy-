@@ -1,0 +1,221 @@
+/* =========================================================
+   NHIMY — ORGANIZAR / AGENDA
+   Interface de gerenciamento de eventos
+   ========================================================= */
+
+.organize-agenda-page {
+  --organize-accent: var(--success);
+  --organize-accent-soft: rgba(16, 185, 129, 0.10);
+}
+
+
+.organize-kicker {
+  color: var(--organize-accent);
+}
+
+
+.agenda-hero {
+  padding-bottom: var(--space-8);
+}
+
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-5);
+
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+
+.back-link:hover {
+  color: var(--organize-accent);
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.event-form {
+  padding: var(--space-6);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+.event-details-grid {
+  margin-top: var(--space-4);
+}
+
+
+.event-form-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: var(--space-5);
+}
+
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.event-list-heading {
+  align-items: center;
+}
+
+
+.event-count {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+
+/* =========================================================
+   ITEM
+   ========================================================= */
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  padding: var(--space-4);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    opacity var(--transition);
+}
+
+
+.event-item:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+
+.event-check {
+  flex: 0 0 auto;
+}
+
+
+.event-toggle {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+
+  padding: 0;
+
+  border: 2px solid var(--organize-accent);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--organize-accent);
+
+  font-weight: 800;
+}
+
+
+.event-toggle:hover {
+  background: var(--organize-accent-soft);
+}
+
+
+.event-main {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  flex: 1;
+}
+
+
+.event-title {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+
+.event-description {
+  margin: 0;
+
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+
+  overflow-wrap: anywhere;
+}
+
+
+.event-date {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}
+
+
+.event-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+
+/* =========================================================
+   ESTADO CONCLUÍDO
+   ========================================================= */
+
+.event-item.is-completed {
+  opacity: 0.68;
+}
+
+
+.event-item.is-completed .event-title {
+  text-decoration: line-through;
+}
+
+
+/* =========================================================
+   VAZIO
+   ========================================================= */
+
+.event-empty {
+  margin-top: var(--space-4);
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+  .event-form {
+    max-width: 920px;
+  }
+
+}

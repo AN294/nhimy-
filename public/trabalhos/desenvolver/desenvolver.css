@@ -1,0 +1,163 @@
+/* =====================================================
+   NHIMY — TRABALHOS / DESENVOLVER
+
+   Identidade:
+   foco, concentração e produção.
+   ===================================================== */
+
+.work-develop-hero {
+  background:
+    linear-gradient(
+      135deg,
+      #fff7ed,
+      var(--surface)
+    );
+
+  border-bottom:
+    1px solid #fed7aa;
+}
+
+
+.work-develop-hero .section-kicker {
+  color: #c2410c;
+}
+
+
+/* =====================================================
+   DEVELOPMENT BLOCKS
+   ===================================================== */
+
+.work-development {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+
+.work-development-block {
+  padding: var(--space-6);
+
+  background: var(--surface);
+
+  border:
+    1px solid #fed7aa;
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+.work-development-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  margin-bottom: var(--space-4);
+}
+
+
+.work-development-heading h3 {
+  margin: 0;
+
+  color: var(--text);
+}
+
+
+.work-development-number {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: var(--radius-md);
+
+  background: #fff7ed;
+  color: #c2410c;
+
+  font-weight: 700;
+}
+
+
+.work-development-editor {
+  display: block;
+
+  width: 100%;
+  min-height: 220px;
+
+  padding: var(--space-4);
+
+  resize: vertical;
+
+  background: #fffdfa;
+
+  border:
+    1px solid #fed7aa;
+
+  border-radius: var(--radius-md);
+
+  color: var(--text);
+
+  font: inherit;
+  line-height: 1.7;
+
+  outline: none;
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+
+.work-development-editor:focus {
+  background: var(--surface);
+
+  border-color: #f97316;
+
+  box-shadow:
+    0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+
+.work-development-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  margin-top: var(--space-8);
+}
+
+
+.work-empty {
+  padding: var(--space-6);
+
+  background: #fff7ed;
+
+  border:
+    1px solid #fed7aa;
+
+  border-radius: var(--radius-lg);
+}
+
+
+.work-empty p {
+  margin-top: var(--space-2);
+}
+
+
+@media (max-width: 640px) {
+
+  .work-development-actions {
+    flex-direction: column;
+  }
+
+  .work-development-actions .button {
+    width: 100%;
+  }
+
+}

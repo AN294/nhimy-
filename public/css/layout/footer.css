@@ -1,0 +1,114 @@
+/* =====================================================
+   NHIMY — FOOTER
+   Rodapé global da aplicação
+   ===================================================== */
+
+.site-footer {
+  margin-top: auto;
+
+  padding-block: var(--space-10);
+
+  border-top: 1px solid var(--border);
+
+  background: var(--surface);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  color: var(--text);
+
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+}
+
+.footer-brand:hover {
+  color: var(--nhimy-blue);
+}
+
+.footer-description {
+  max-width: 520px;
+
+  margin-top: var(--space-2);
+
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+
+  font-size: var(--font-size-sm);
+
+  transition:
+    color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--nhimy-blue);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  padding-top: var(--space-5);
+
+  border-top: 1px solid var(--border-soft);
+
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 599px) {
+
+  .site-footer {
+    padding-block: var(--space-8);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+}
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 900px) {
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-10);
+  }
+
+  .footer-bottom {
+    grid-column: 1 / -1;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}

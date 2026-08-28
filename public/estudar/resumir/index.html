@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Nhimy Resumir — transforme conteúdos em materiais mais fáceis de estudar."
+  >
+
+  <title>Resumir — Nhimy</title>
+
+  <link rel="stylesheet" href="/css/base/variables.css">
+  <link rel="stylesheet" href="/css/base/reset.css">
+  <link rel="stylesheet" href="/css/base/typography.css">
+
+  <link rel="stylesheet" href="/css/layout/container.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/sections.css">
+
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/forms.css">
+  <link rel="stylesheet" href="/css/components/messages.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="/" class="brand" aria-label="Nhimy">
+        <span class="brand-name">Nhimy</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="/">Estudante</a>
+        <a href="/estudar/" class="active">Estudar</a>
+        <a href="/trabalhos/">Trabalhos</a>
+        <a href="/organizar/">Organizar</a>
+        <a href="/ferramentas/">Ferramentas</a>
+      </nav>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="student-hero">
+      <div class="container hero-content">
+
+        <span class="section-kicker">Resumir</span>
+
+        <h1>Transforme conteúdo em algo mais fácil de estudar.</h1>
+
+        <p>
+          Cole um conteúdo, escolha como quer trabalhar com ele
+          e prepare-se para compreender melhor.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="student-section">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">Começar</span>
+
+          <h2>Prepare seu conteúdo.</h2>
+
+          <p>
+            Você participa do processo. O Nhimy ajuda a transformar
+            o conteúdo em uma forma mais útil para seus estudos.
+          </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label class="form-label" for="summaryText">
+            Seu conteúdo
+          </label>
+
+          <textarea
+            id="summaryText"
+            name="summaryText"
+            rows="10"
+            placeholder="Cole ou escreva aqui o conteúdo que você quer estudar..."
+          ></textarea>
+
+          <span class="form-help">
+            Você poderá revisar o resultado antes de continuar.
+          </span>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label class="form-label" for="summaryMode">
+            Como você quer trabalhar esse conteúdo?
+          </label>
+
+          <select id="summaryMode" name="summaryMode">
+
+            <option value="quick">
+              Resumo rápido
+            </option>
+
+            <option value="detailed">
+              Resumo detalhado
+            </option>
+
+            <option value="points">
+              Pontos principais
+            </option>
+
+            <option value="review">
+              Resumo para revisão
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <button
+            class="btn btn-primary btn-lg"
+            type="button"
+            id="summaryStart"
+          >
+            Resumir →
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         RESULTADO
+         =================================================== -->
+
+    <section
+      class="student-section"
+      id="summaryResult"
+      hidden
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">Seu resultado</span>
+
+          <h2>Resumo</h2>
+
+          <p>
+            Revise o conteúdo antes de continuar.
+          </p>
+
+        </div>
+
+
+        <div class="message message-info">
+
+          <span class="message-icon" aria-hidden="true">✦</span>
+
+          <div class="message-content">
+
+            <strong class="message-title">
+              Seu resumo aparecerá aqui.
+            </strong>
+
+            <span class="message-text">
+              Depois do processamento, você poderá revisar,
+              editar e continuar estudando a partir deste conteúdo.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="summaryOutput"
+          >
+            Resultado
+          </label>
+
+          <textarea
+            id="summaryOutput"
+            rows="12"
+            readonly
+            placeholder="O resultado aparecerá aqui..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="action-grid">
+
+          <button
+            class="btn btn-secondary"
+            type="button"
+            id="summaryEdit"
+          >
+            Revisar
+          </button>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="summaryContinue"
+          >
+            Continuar →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script type="module" src="/estudar/resumir/app.js"></script>
+
+</body>
+</html>

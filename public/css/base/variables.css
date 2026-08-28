@@ -1,0 +1,119 @@
+:root {
+
+  /* =====================================================
+     NHIMY — IDENTIDADE
+     ===================================================== */
+
+  --nhimy-blue: #2563eb;
+  --nhimy-blue-dark: #1d4ed8;
+  --nhimy-blue-soft: #eff6ff;
+
+  --student-purple: #7c3aed;
+  --student-purple-dark: #6d28d9;
+  --student-purple-soft: #f5f3ff;
+
+
+  /* =====================================================
+     CORES DE INTERFACE
+     ===================================================== */
+
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-soft: #f1f5f9;
+
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --border: #e2e8f0;
+  --border-soft: #f1f5f9;
+
+
+  /* =====================================================
+     ESTADOS
+     ===================================================== */
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+
+
+  /* =====================================================
+     SOMBRAS
+     ===================================================== */
+
+  --shadow-sm:
+    0 1px 2px rgba(15, 23, 42, 0.05);
+
+  --shadow-md:
+    0 8px 24px rgba(15, 23, 42, 0.08);
+
+  --shadow-lg:
+    0 16px 40px rgba(15, 23, 42, 0.10);
+
+
+  /* =====================================================
+     BORDAS
+     ===================================================== */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+
+  /* =====================================================
+     ESPAÇAMENTO
+     ===================================================== */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+
+  /* =====================================================
+     LARGURAS
+     ===================================================== */
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1100px;
+
+
+  /* =====================================================
+     TRANSIÇÕES
+     ===================================================== */
+
+  --transition-fast: 150ms ease;
+  --transition: 220ms ease;
+  --transition-slow: 350ms ease;
+
+
+  /* =====================================================
+     TIPOGRAFIA
+     ===================================================== */
+
+  --font-sans:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 42px;
+
+}

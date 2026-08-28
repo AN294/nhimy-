@@ -1,0 +1,62 @@
+/* =====================================================
+   NHIMY — CONTAINER
+   Sistema responsivo de largura e espaçamento
+   ===================================================== */
+
+.container {
+  width: min(
+    calc(100% - 32px),
+    var(--container-lg)
+  );
+
+  margin-inline: auto;
+}
+
+.student-section,
+.student-hero {
+  width: min(
+    calc(100% - 32px),
+    var(--container-lg)
+  );
+
+  margin-inline: auto;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+  .student-section {
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-10);
+  }
+
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (min-width: 768px) {
+
+  .student-section {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-12);
+  }
+
+}
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 1100px) {
+
+  .student-section {
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-16);
+  }
+
+}

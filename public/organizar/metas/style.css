@@ -1,0 +1,249 @@
+/* =========================================================
+   NHIMY — ORGANIZAR / METAS
+   Interface de gerenciamento de metas
+   ========================================================= */
+
+.organize-goals-page {
+  --organize-accent: var(--success);
+  --organize-accent-soft: rgba(16, 185, 129, 0.10);
+}
+
+.organize-kicker {
+  color: var(--organize-accent);
+}
+
+.goals-hero {
+  padding-bottom: var(--space-8);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-5);
+
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.back-link:hover {
+  color: var(--organize-accent);
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.goal-form {
+  padding: var(--space-6);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.goal-description-group {
+  margin-top: var(--space-4);
+}
+
+.goal-form-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: var(--space-5);
+}
+
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.goal-list-heading {
+  align-items: center;
+}
+
+.goal-count {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+
+/* =========================================================
+   ITEM
+   ========================================================= */
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  padding: var(--space-4);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    opacity var(--transition);
+}
+
+.goal-item:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+.goal-check {
+  flex: 0 0 auto;
+}
+
+.goal-toggle {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+
+  padding: 0;
+
+  border: 2px solid var(--organize-accent);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--organize-accent);
+
+  font-weight: 800;
+}
+
+.goal-toggle:hover {
+  background: var(--organize-accent-soft);
+}
+
+.goal-main {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  flex: 1;
+}
+
+.goal-title {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.goal-description {
+  margin: 0;
+
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+
+  overflow-wrap: anywhere;
+}
+
+.goal-date {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.goal-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  flex: 0 0 auto;
+}
+
+
+/* =========================================================
+   CONCLUÍDA
+   ========================================================= */
+
+.goal-item.is-completed {
+  opacity: 0.68;
+}
+
+.goal-item.is-completed .goal-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.goal-item.is-completed .goal-toggle {
+  background: var(--organize-accent);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   ESTADO VAZIO
+   ========================================================= */
+
+.goal-empty {
+  margin-top: var(--space-4);
+}
+
+.goal-empty[hidden] {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  .goal-form {
+    padding: var(--space-4);
+  }
+
+  .goal-form-actions {
+    justify-content: stretch;
+  }
+
+  .goal-form-actions .btn {
+    width: 100%;
+  }
+
+  .goal-item {
+    align-items: flex-start;
+  }
+
+  .goal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .goal-actions .btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+  .goal-form {
+    max-width: 920px;
+  }
+
+}

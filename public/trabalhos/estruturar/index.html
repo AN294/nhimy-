@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Nhimy Trabalhos — estruture seu trabalho."
+  >
+
+  <title>Estruturar — Nhimy</title>
+
+  <link rel="stylesheet" href="/css/base/variables.css">
+  <link rel="stylesheet" href="/css/base/reset.css">
+  <link rel="stylesheet" href="/css/base/typography.css">
+
+  <link rel="stylesheet" href="/css/layout/container.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/sections.css">
+
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/forms.css">
+
+  <link rel="stylesheet" href="/trabalhos/trabalhos.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="/" class="brand" aria-label="Nhimy">
+        <span class="brand-name">Nhimy</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="/">Estudante</a>
+        <a href="/estudar/">Estudar</a>
+        <a href="/trabalhos/" class="active">Trabalhos</a>
+        <a href="/organizar/">Organizar</a>
+        <a href="/ferramentas/">Ferramentas</a>
+      </nav>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <nav
+      class="work-progress"
+      aria-label="Progresso do trabalho"
+      data-current-stage="estruturar"
+    >
+
+      <div class="work-progress-step completed">
+        <span class="work-progress-number">01</span>
+        <span class="work-progress-label">Criar</span>
+      </div>
+      <div class="work-progress-step completed">
+        <span class="work-progress-number">02</span>
+        <span class="work-progress-label">Orientar</span>
+      </div>
+      <div class="work-progress-step active">
+        <span class="work-progress-number">03</span>
+        <span class="work-progress-label">Estruturar</span>
+      </div>
+      <div class="work-progress-step ">
+        <span class="work-progress-number">04</span>
+        <span class="work-progress-label">Desenvolver</span>
+      </div>
+      <div class="work-progress-step ">
+        <span class="work-progress-number">05</span>
+        <span class="work-progress-label">Revisar</span>
+      </div>
+      <div class="work-progress-step ">
+        <span class="work-progress-number">06</span>
+        <span class="work-progress-label">Finalizar</span>
+      </div>
+    </nav>
+
+
+    <section class="student-hero">
+      <div class="container hero-content">
+
+        <span class="section-kicker">02 · Estruturar</span>
+
+        <h1>Dê forma às suas ideias.</h1>
+
+        <p>
+          Organize os principais capítulos e tópicos
+          antes de começar a desenvolver o conteúdo.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="student-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-kicker">Seu trabalho</span>
+
+          <h2 id="projectTitle">Seu trabalho</h2>
+
+          <p id="projectInfo">
+            Organize a sequência que fará sentido para o seu trabalho.
+          </p>
+        </div>
+
+
+        <div class="form-group">
+
+          <label class="form-label" for="sectionTitle">
+            Novo capítulo ou tópico
+          </label>
+
+          <div class="work-structure-input">
+            <input
+              id="sectionTitle"
+              type="text"
+              placeholder="Ex.: Introdução"
+              autocomplete="off"
+            >
+
+            <button
+              id="addSection"
+              type="button"
+              class="button button-primary"
+            >
+              Adicionar
+            </button>
+          </div>
+
+          <span class="form-help">
+            Comece pelos capítulos principais. Você poderá
+            desenvolver cada parte depois.
+          </span>
+
+        </div>
+
+
+        <div
+          id="structureList"
+          class="work-structure-list"
+          aria-live="polite"
+        ></div>
+
+
+        <div class="form-actions">
+
+          <a
+            href="/trabalhos/criar/"
+            class="button button-secondary"
+          >
+            Voltar
+          </a>
+
+          <button
+            id="continueButton"
+            type="button"
+            class="button button-primary"
+          >
+            Salvar e continuar
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <script type="module" src="/trabalhos/estruturar/app.js"></script>
+
+</body>
+</html>

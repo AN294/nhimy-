@@ -1,0 +1,159 @@
+/* =====================================================
+   NHIMY — BUTTONS
+   Sistema de botões
+   ===================================================== */
+
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  min-height: 44px;
+  padding: 0 var(--space-4);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.98);
+}
+
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.22);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   PRIMÁRIO
+   ===================================================== */
+
+.btn-primary {
+  background: var(--student-purple);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--student-purple-dark);
+}
+
+/* =====================================================
+   NHIMY BLUE
+   ===================================================== */
+
+.btn-brand {
+  background: var(--nhimy-blue);
+  color: #ffffff;
+}
+
+.btn-brand:hover {
+  background: var(--nhimy-blue-dark);
+}
+
+/* =====================================================
+   SECUNDÁRIO
+   ===================================================== */
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-soft);
+  border-color: var(--text-muted);
+}
+
+/* =====================================================
+   GHOST
+   ===================================================== */
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+/* =====================================================
+   TAMANHOS
+   ===================================================== */
+
+.btn-sm {
+  min-height: 38px;
+  padding-inline: var(--space-3);
+
+  font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+  min-height: 52px;
+  padding-inline: var(--space-6);
+
+  font-size: var(--font-size-md);
+}
+
+/* =====================================================
+   LARGURA TOTAL — MOBILE FRIENDLY
+   ===================================================== */
+
+.btn-block {
+  width: 100%;
+}
+
+/* =====================================================
+   BOTÃO DE ÍCONE
+   ===================================================== */
+
+.btn-icon {
+  width: 44px;
+  padding: 0;
+}
+
+.btn-icon.btn-sm {
+  width: 38px;
+}
+
+/* =====================================================
+   DESABILITADO
+   ===================================================== */
+
+button:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 599px) {
+
+  .btn-lg {
+    width: 100%;
+  }
+
+}

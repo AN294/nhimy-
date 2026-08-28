@@ -1,0 +1,85 @@
+/* =====================================================
+   NHIMY — SECTIONS
+   Ritmo e estrutura das páginas
+   ===================================================== */
+
+.student-section {
+  position: relative;
+}
+
+.section-heading {
+  margin-bottom: var(--space-6);
+}
+
+.section-heading h2 {
+  margin-top: var(--space-2);
+}
+
+.section-heading p {
+  max-width: 650px;
+  margin-top: var(--space-3);
+}
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.student-hero {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-8);
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero-content h1 {
+  margin-top: var(--space-3);
+}
+
+.hero-content p {
+  max-width: 620px;
+  margin-top: var(--space-4);
+}
+
+/* =====================================================
+   ESPAÇAMENTO ENTRE BLOCOS
+   ===================================================== */
+
+.primary-actions,
+.feature-section,
+.continue-section,
+.intelligence-section,
+.tools-preview {
+  scroll-margin-top: 90px;
+}
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (min-width: 768px) {
+
+  .student-hero {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-12);
+  }
+
+  .section-heading {
+    margin-bottom: var(--space-8);
+  }
+
+}
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 1100px) {
+
+  .student-hero {
+    padding-top: 80px;
+    padding-bottom: 64px;
+  }
+
+}

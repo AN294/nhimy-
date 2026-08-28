@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Nhimy Quiz — teste seus conhecimentos e consolide o que aprendeu."
+  >
+
+  <title>Quiz — Nhimy</title>
+
+  <link rel="stylesheet" href="/css/base/variables.css">
+  <link rel="stylesheet" href="/css/base/reset.css">
+  <link rel="stylesheet" href="/css/base/typography.css">
+
+  <link rel="stylesheet" href="/css/layout/container.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/layout/sections.css">
+
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/forms.css">
+  <link rel="stylesheet" href="/css/components/messages.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="/" class="brand" aria-label="Nhimy">
+        <span class="brand-name">Nhimy</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="/">Estudante</a>
+        <a href="/estudar/" class="active">Estudar</a>
+        <a href="/trabalhos/">Trabalhos</a>
+        <a href="/organizar/">Organizar</a>
+        <a href="/ferramentas/">Ferramentas</a>
+      </nav>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="student-hero">
+      <div class="container hero-content">
+
+        <span class="section-kicker">Quiz</span>
+
+        <h1>Teste o que você aprendeu.</h1>
+
+        <p>
+          Responda às perguntas e descubra
+          o quanto você realmente compreendeu.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="student-section">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">Começar</span>
+
+          <h2>Seu quiz</h2>
+
+          <p>
+            O conteúdo estudado será transformado
+            em perguntas para você responder.
+          </p>
+
+        </div>
+
+
+        <div class="message message-info">
+
+          <span class="message-icon" aria-hidden="true">✦</span>
+
+          <div class="message-content">
+
+            <strong class="message-title">
+              Quiz preparado a partir do seu estudo.
+            </strong>
+
+            <span class="message-text">
+              Nesta etapa você vai testar sua compreensão
+              e reforçar o que aprendeu.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="quiz-area">
+
+          <div class="quiz-progress">
+            <span id="quizProgress">Questão 1 de 1</span>
+          </div>
+
+
+          <div class="quiz-card">
+
+            <span class="quiz-label">
+              PERGUNTA
+            </span>
+
+            <h3 id="quizQuestion">
+              Preparando sua pergunta...
+            </h3>
+
+
+            <div
+              id="quizOptions"
+              class="quiz-options"
+            ></div>
+
+
+            <div
+              id="quizFeedback"
+              class="quiz-feedback"
+              hidden
+            ></div>
+
+          </div>
+
+
+          <div class="action-grid">
+
+            <button
+              class="btn btn-secondary"
+              type="button"
+              id="quizBack"
+            >
+              Voltar
+            </button>
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="quizStart"
+            >
+              Responder →
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <script type="module" src="/estudar/quiz/app.js"></script>
+
+</body>
+</html>

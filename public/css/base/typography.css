@@ -1,0 +1,61 @@
+/* =====================================================
+   NHIMY — TYPOGRAPHY
+   Hierarquia tipográfica responsiva
+   ===================================================== */
+
+body {
+  line-height: 1.6;
+  font-size: var(--font-size-md);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, var(--font-size-3xl));
+}
+
+h2 {
+  font-size: clamp(1.5rem, 5vw, var(--font-size-2xl));
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+small {
+  font-size: var(--font-size-sm);
+  line-height: 1.45;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.section-kicker,
+.eyebrow {
+  display: inline-block;
+  color: var(--student-purple);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17px;
+  }
+}

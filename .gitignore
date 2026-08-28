@@ -1,3 +1,7 @@
 node_modules/
 dev-backups/
 *.log
+
+# Backups internos de desenvolvimento
+*.before-*
+*.bak

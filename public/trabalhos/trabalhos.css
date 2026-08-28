@@ -1,0 +1,413 @@
+/* =====================================================
+   NHIMY — TRABALHOS
+   Experiência visual específica do módulo
+   ===================================================== */
+
+.trabalhos-flow .feature-card {
+  position: relative;
+  overflow: hidden;
+
+  border-top: 3px solid var(--work-stage-color);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.trabalhos-flow .feature-card > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: var(--space-4);
+
+  border-radius: 50%;
+
+  background: var(--work-stage-soft);
+  color: var(--work-stage-color);
+
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+
+.trabalhos-flow .feature-card strong {
+  color: var(--text);
+}
+
+.trabalhos-flow .feature-card small {
+  max-width: 30ch;
+}
+
+.trabalhos-flow .feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--work-stage-color);
+  box-shadow: var(--shadow-md);
+}
+
+/* =====================================================
+   CORES DAS ETAPAS
+   ===================================================== */
+
+.trabalho-criar {
+  --work-stage-color: var(--nhimy-blue);
+  --work-stage-soft: var(--nhimy-blue-soft);
+}
+
+.trabalho-estruturar {
+  --work-stage-color: #4f46e5;
+  --work-stage-soft: #eef2ff;
+}
+
+.trabalho-desenvolver {
+  --work-stage-color: #0f766e;
+  --work-stage-soft: #f0fdfa;
+}
+
+.trabalho-revisar {
+  --work-stage-color: var(--warning);
+  --work-stage-soft: #fffbeb;
+}
+
+.trabalho-finalizar {
+  --work-stage-color: var(--success);
+  --work-stage-soft: #f0fdf4;
+}
+
+/* =====================================================
+   FLUXO VISUAL
+   ===================================================== */
+
+.trabalhos-flow .feature-card::after {
+  content: "→";
+
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+
+  color: var(--border);
+
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.trabalhos-flow .trabalho-finalizar::after {
+  content: "✓";
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 640px) {
+  .trabalhos-flow .feature-card {
+    min-height: 140px;
+  }
+
+  .trabalhos-flow .feature-card::after {
+    right: var(--space-5);
+    bottom: var(--space-5);
+  }
+}
+
+
+/* =====================================================
+   ESTRUTURA DO TRABALHO
+   ===================================================== */
+
+.work-structure-input {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+.work-structure-input input {
+  flex: 1;
+  min-width: 0;
+}
+
+.work-structure-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.work-structure-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  padding: var(--space-4);
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.work-structure-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: var(--radius-md);
+
+  background: #eef2ff;
+  color: #4f46e5;
+
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+}
+
+.work-structure-item strong {
+  flex: 1;
+  min-width: 0;
+}
+
+.work-remove {
+  flex: 0 0 auto;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.work-remove:hover {
+  color: var(--danger);
+}
+
+.work-empty-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  padding: var(--space-6);
+
+  background: var(--surface-soft);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+
+  text-align: center;
+}
+
+.work-empty-state small {
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+
+  .work-structure-input {
+    flex-direction: column;
+  }
+
+  .work-structure-input .button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   WORK ORIENTATION FORM
+   Entrada guiada do ponto de partida do estudante.
+   ========================================================= */
+
+.work-orientation-form {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid var(--work-stage-soft);
+  border-top: 3px solid var(--work-stage-color);
+  border-radius: 14px;
+  background: var(--surface, #ffffff);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.work-orientation-form .form-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.work-orientation-form textarea {
+  display: block;
+  width: 100%;
+  min-height: 170px;
+  padding: 1rem;
+  border: 1px solid var(--border, #d9dce3);
+  border-radius: 10px;
+  background: var(--background, #ffffff);
+  color: var(--text-primary);
+  font: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.work-orientation-form textarea:focus {
+  outline: none;
+  border-color: var(--work-stage-color);
+  box-shadow: 0 0 0 3px var(--work-stage-soft);
+}
+
+.work-orientation-form .form-help {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .work-orientation-form {
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  .work-orientation-form textarea {
+    min-height: 150px;
+  }
+
+}
+
+
+/* =====================================================
+   FLUXO INTERNO — TRABALHOS
+   Identidade visual contínua das etapas.
+   ===================================================== */
+
+.work-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto var(--space-6);
+}
+
+.work-progress-step {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  color: var(--text-muted);
+
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+
+  transition:
+    color var(--transition),
+    opacity var(--transition);
+}
+
+.work-progress-step::after {
+  content: "";
+
+  width: 32px;
+  height: 1px;
+
+  margin-left: var(--space-2);
+
+  background: var(--border);
+
+  transition: background var(--transition);
+}
+
+.work-progress-step:last-child::after {
+  display: none;
+}
+
+.work-progress-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 auto;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface);
+
+  color: var(--text-muted);
+
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+
+  transition:
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.work-progress-step.active {
+  color: var(--work-stage-color, var(--nhimy-blue));
+}
+
+.work-progress-step.active .work-progress-number {
+  border-color: var(--work-stage-color, var(--nhimy-blue));
+  background: var(--work-stage-soft, var(--nhimy-blue-soft));
+  color: var(--work-stage-color, var(--nhimy-blue));
+}
+
+.work-progress-step.completed {
+  color: var(--success);
+}
+
+.work-progress-step.completed .work-progress-number {
+  border-color: var(--success);
+  background: #f0fdf4;
+  color: var(--success);
+}
+
+.work-progress-step.completed::after {
+  background: var(--success);
+}
+
+@media (max-width: 640px) {
+
+  .work-progress {
+    justify-content: space-between;
+    gap: var(--space-1);
+  }
+
+  .work-progress-step {
+    gap: 0;
+  }
+
+  .work-progress-step::after {
+    width: 14px;
+    margin-left: var(--space-1);
+  }
+
+  .work-progress-label {
+    display: none;
+  }
+
+}

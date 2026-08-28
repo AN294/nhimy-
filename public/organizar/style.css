@@ -1,0 +1,50 @@
+/* =========================================================
+   NHIMY — ORGANIZAR
+   Identidade visual da experiência de organização
+   ========================================================= */
+
+.organize-page {
+  --organize-accent: var(--success);
+  --organize-accent-soft: rgba(16, 185, 129, 0.10);
+}
+
+.organize-kicker {
+  color: var(--organize-accent);
+}
+
+.organize-card .action-icon {
+  background: var(--organize-accent-soft);
+  color: var(--organize-accent);
+}
+
+.organize-card:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+@media (max-width: 599px) {
+  .organize-hero {
+    padding-bottom: var(--space-8);
+  }
+}
+
+/* =========================================================
+   RESUMO DOS CARDS
+   ========================================================= */
+
+.organize-card-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+
+  margin-top: auto;
+
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.organize-card-count strong {
+  color: var(--organize-accent);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+}
