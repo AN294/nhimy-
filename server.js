@@ -2,6 +2,9 @@ import express from "express";
 import QRCode from "qrcode";
 import path from "path";
 import { fileURLToPath } from "url";
+import {
+  collectResearch
+} from "./public/js/core/work/research/service.js";
 
 const app = express();
 const PORT = process.env.PORT || 3100;
@@ -95,6 +98,33 @@ app.post("/api/qr", async (req, res) => {
     });
   }
 });
+
+/* =========================================================
+   RESEARCH
+   ========================================================= */
+
+app.post("/api/research", async (req, res) => {
+  try {
+    const request = req.body;
+
+    const result =
+      await collectResearch(request);
+
+    return res.json({
+      ok: true,
+      result
+    });
+
+  } catch (error) {
+    console.error("Erro Research:", error);
+
+    return res.status(400).json({
+      ok: false,
+      error: error.message
+    });
+  }
+});
+
 
 /* =========================================================
    HEALTH CHECK

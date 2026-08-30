@@ -4,8 +4,17 @@ import {
 } from "/js/core/work/storage.js";
 
 import {
-  initWorkProgress
+  initWorkProgress,
+  getCurrentStage
 } from "/js/core/work/flow.js";
+
+import {
+  createResearchPlan
+} from "/js/core/work/intelligence.js";
+
+import {
+  buildResearchRequest
+} from "/js/core/work/research/requestBuilder.js";
 
 
 const project = getProject();
@@ -109,6 +118,7 @@ const current =
 
 
 if (!current) {
+
   orientationTitle.textContent =
     "Vamos começar pelo que você já tem.";
 
@@ -150,7 +160,6 @@ if (!current) {
 
     </div>
   `;
-
 }
 
 
@@ -158,7 +167,7 @@ const orientationInput =
   document.querySelector("#orientationInput");
 
 
-function continueOrientation() {
+async function continueOrientation() {
 
   const currentProject =
     getProject();
@@ -182,17 +191,173 @@ function continueOrientation() {
   }
 
 
-  setProject({
-    ...currentProject,
-
-    orientationContext: context,
-
-    orientationReady: true
-  });
+  continueButton.disabled = true;
 
 
-  window.location.href =
-    "/trabalhos/estruturar/";
+  try {
+
+    const plan =
+      createResearchPlan({
+
+        title:
+          currentProject.title,
+
+        subject:
+          currentProject.subject,
+
+        orientationContext:
+          context,
+
+        questions: [
+          `O que é ${currentProject.title} e qual é o seu contexto?`,
+          `Quais são os principais fatores, causas, consequências e evidências científicas relacionadas a ${currentProject.title}?`
+        ],
+
+        researchNeeds: [
+          "Definir os principais conceitos relacionados ao tema.",
+          "Identificar os aspectos mais importantes que devem ser abordados.",
+          "Pesquisar informações confiáveis relacionadas ao tema.",
+          "Selecionar informações relevantes para cada seção do trabalho."
+        ],
+
+        requestedSections: [
+          {
+            title: "Introdução",
+            purpose:
+              "Apresentar o tema, contextualizar o assunto e indicar o objetivo do trabalho."
+          },
+          {
+            title: "Desenvolvimento",
+            purpose:
+              "Apresentar e explicar os principais conteúdos relacionados ao tema."
+          },
+          {
+            title: "Conclusão",
+            purpose:
+              "Retomar as ideias principais e apresentar uma síntese do trabalho."
+          },
+          {
+            title: "Referências",
+            purpose:
+              "Registrar as fontes utilizadas na construção do trabalho."
+          }
+        ]
+
+      });
+
+
+    if (
+      !plan ||
+      plan.status !== "success"
+    ) {
+      throw new Error(
+        "Não foi possível criar o plano de pesquisa."
+      );
+    }
+
+
+    const request =
+      buildResearchRequest({
+
+        topic:
+          plan.topic,
+
+        subject:
+          plan.subject,
+
+        questions:
+          plan.questions,
+
+        sections:
+          plan.sections,
+
+        sourcePolicy: {
+          requireSource: true,
+          preserveSourceDetails: true,
+          allowStudentMaterials: true,
+          allowExternalSources: true
+        }
+
+      });
+
+
+    const response =
+      await fetch(
+        "/api/research",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json"
+          },
+
+          body:
+            JSON.stringify(request)
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      !response.ok ||
+      !data.ok ||
+      !data.result
+    ) {
+      throw new Error(
+        data.error ||
+        "Não foi possível realizar a pesquisa."
+      );
+    }
+
+
+    const result =
+      data.result;
+
+
+    setProject({
+
+      ...currentProject,
+
+      orientationContext:
+        context,
+
+      orientationReady:
+        true,
+
+      researchReady:
+        result.readyForStructure === true,
+
+      research: result,
+
+      researchPlan:
+        plan,
+
+      researchRequest:
+        request
+
+    });
+
+
+    window.location.href =
+      "/trabalhos/estruturar/";
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao preparar pesquisa:",
+      error
+    );
+
+    continueButton.disabled = false;
+
+    alert(
+      "Não foi possível preparar a pesquisa. Tente novamente."
+    );
+  }
 
 }
 

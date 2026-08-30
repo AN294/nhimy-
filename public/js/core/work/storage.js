@@ -3,9 +3,6 @@
  * NHIMY — WORK STORAGE
  *
  * Fonte central do estado de Trabalhos.
- *
- * Nenhum módulo de Trabalhos deve acessar
- * diretamente o sessionStorage.
  * =========================================================
  */
 
@@ -69,6 +66,16 @@ function createProject(data = {}) {
 
     orientationReady:
       data.orientationReady === true,
+
+    researchReady:
+      data.researchReady === true,
+
+    research:
+      data.research &&
+      typeof data.research === "object" &&
+      !Array.isArray(data.research)
+        ? { ...data.research }
+        : null,
 
     structure:
       Array.isArray(data.structure)
