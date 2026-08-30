@@ -1,3 +1,6 @@
+cd ~/nhimy
+
+cat > public/index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -21,7 +24,86 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
+
 <body>
+
+  <!-- =====================================================
+       NHIMY 3.0 — ASSINATURA DE ENTRADA
+       ===================================================== -->
+
+  <div
+    id="nhimyIntro"
+    class="nhimy-intro"
+    role="presentation"
+    aria-label="Nhimy"
+  >
+
+    <div class="nhimy-intro-content">
+
+      <div class="nhimy-intro-logo" aria-hidden="true">
+
+        <svg
+          class="nhimy-cap"
+          viewBox="0 0 240 180"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <defs>
+            <linearGradient
+              id="nhimyIntroGradient"
+              x1="0%"
+              y1="100%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="100%" stop-color="#4c8dff"/>
+            </linearGradient>
+          </defs>
+
+          <path
+            class="cap-line"
+            d="M42 78 L120 42 L198 78 L120 114 Z"
+          />
+
+          <path
+            class="cap-line"
+            d="M120 114 L120 145"
+          />
+
+          <path
+            class="cap-line"
+            d="M94 145 H146"
+          />
+
+          <path
+            class="cap-line"
+            d="M198 78 V105"
+          />
+
+          <path
+            class="cap-line cap-tassel"
+            d="M198 105 C211 112 211 126 198 132"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <div class="nhimy-intro-name">
+        NHIMY
+      </div>
+
+
+      <p class="nhimy-intro-tagline">
+        Construindo conhecimento.
+      </p>
+
+    </div>
+
+  </div>
+
 
   <!-- =====================================================
        HEADER
@@ -1276,7 +1358,9 @@
   </footer>
 
 
-<script src="/app.js"></script>
+  <script src="/intro.js"></script>
+  <script src="/app.js"></script>
 
 </body>
 </html>
+EOF

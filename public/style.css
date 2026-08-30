@@ -1116,3 +1116,228 @@ input[type="file"]::file-selector-button {
     animation: none !important;
   }
 }
+/* =========================================================
+   NHIMY 3.0 — ASSINATURA DE ENTRADA
+   ========================================================= */
+
+.nhimy-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(139, 92, 246, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #0a0b12 0%,
+      #0d0f18 100%
+    );
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.65s ease,
+    visibility 0.55s ease;
+}
+
+.nhimy-intro.is-leaving {
+  opacity: 0;
+  transform: scale(1.025);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.nhimy-intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  transform: translateY(10px);
+}
+
+.nhimy-intro-logo {
+  width: 180px;
+  height: 135px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nhimy-cap {
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.cap-line {
+  fill: none;
+  stroke: url(#nhimyIntroGradient);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+
+  animation:
+    nhimyCapDraw 1.25s ease forwards,
+    nhimyCapGlow 0.8s ease 1.15s forwards;
+}
+
+.cap-line:nth-of-type(2) {
+  animation-delay: 0.18s, 1.15s;
+}
+
+.cap-line:nth-of-type(3) {
+  animation-delay: 0.32s, 1.15s;
+}
+
+.cap-line:nth-of-type(4) {
+  animation-delay: 0.46s, 1.15s;
+}
+
+.cap-line:nth-of-type(5) {
+  animation-delay: 0.60s, 1.15s;
+}
+
+.nhimy-intro-name {
+  margin-top: -2px;
+
+  font-family:
+    "Poppins",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: clamp(2.5rem, 11vw, 4.2rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  background:
+    linear-gradient(
+      110deg,
+      #8b5cf6 0%,
+      #6d73f5 48%,
+      #4c8dff 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation:
+    nhimyRiseIn 0.65s ease 1.25s forwards;
+}
+
+.nhimy-intro-tagline {
+  margin: 14px 0 0;
+
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #8b90a3;
+
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  animation:
+    nhimyFadeIn 0.6s ease 1.55s forwards;
+}
+
+@keyframes nhimyCapDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nhimyCapGlow {
+  from {
+    filter: drop-shadow(
+      0 0 0 rgba(139, 92, 246, 0)
+    );
+  }
+
+  to {
+    filter: drop-shadow(
+      0 0 18px rgba(139, 92, 246, 0.28)
+    );
+  }
+}
+
+@keyframes nhimyRiseIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nhimyFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nhimy-intro {
+    transition: none;
+  }
+
+  .nhimy-intro.is-leaving {
+    transform: none;
+  }
+
+  .cap-line,
+  .nhimy-intro-name,
+  .nhimy-intro-tagline {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .nhimy-intro-logo {
+    width: 155px;
+    height: 116px;
+  }
+
+  .nhimy-intro-tagline {
+    font-size: 0.88rem;
+  }
+
+}
