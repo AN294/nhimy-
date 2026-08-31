@@ -179,6 +179,90 @@ function suggestStructure({
 }
 
 
+/**
+ * Cria uma estrutura de trabalho a partir
+ * dos resultados da pesquisa.
+ *
+ * O Research fornece evidências/conteúdo.
+ * Esta função transforma esses dados em
+ * organização estrutural, sem colocar os
+ * findings diretamente como capítulos.
+ */
+function suggestResearchStructure(research = {}) {
+
+  const findings =
+    Array.isArray(research?.findings)
+      ? research.findings
+      : [];
+
+  if (!findings.length) {
+    return [];
+  }
+
+  const sections = [];
+
+  const hasIntent = intent =>
+    findings.some(
+      finding =>
+        finding?.intent === intent
+    );
+
+  const add = section => {
+    if (!sections.includes(section)) {
+      sections.push(section);
+    }
+  };
+
+  /*
+   * A estrutura-base acompanha as seções
+   * já definidas pelo Research.
+   */
+  add("Introdução");
+
+  if (
+    hasIntent("definition")
+  ) {
+    add("Conceito de ansiedade e depressão na gravidez");
+  }
+
+  if (
+    hasIntent("factors")
+  ) {
+    add("Fatores relacionados");
+  }
+
+  if (
+    hasIntent("symptoms")
+  ) {
+    add("Sintomas e manifestações");
+  }
+
+  if (
+    hasIntent("diagnosis")
+  ) {
+    add("Diagnóstico e avaliação");
+  }
+
+  if (
+    hasIntent("consequences")
+  ) {
+    add("Consequências e impactos");
+  }
+
+  if (
+    hasIntent("prevention")
+  ) {
+    add("Prevenção e intervenção");
+  }
+
+  add("Conclusão");
+  add("Referências");
+
+  return sections;
+}
+
+
 export {
-  suggestStructure
+  suggestStructure,
+  suggestResearchStructure
 };

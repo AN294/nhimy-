@@ -8,7 +8,8 @@ import {
 } from "/js/core/work/flow.js";
 
 import {
-  suggestStructure
+  suggestStructure,
+  suggestResearchStructure
 } from "/js/core/work/structure.js";
 
 
@@ -50,29 +51,58 @@ let structure = Array.isArray(project?.structure)
   : [];
 
 
-if (
-  !structure.length &&
-  project?.orientationReady === true
-) {
+  if (!structure.length) {
 
-  const suggested =
-    suggestStructure({
-      type: project.type,
-      orientation: project.orientation,
-      orientationContext: project.orientationContext
-    });
+    let suggested = [];
 
-  if (Array.isArray(suggested) && suggested.length) {
+    /*
+     * Research tem prioridade quando
+     * a pesquisa já foi concluída.
+     */
+    if (
+      project?.researchReady === true &&
+      project?.research &&
+      typeof project.research === "object"
+    ) {
+      suggested =
+        suggestResearchStructure(
+          project.research
+        );
+    }
 
-    structure = [...suggested];
+    /*
+     * Fallback para a estrutura tradicional.
+     */
+    if (
+      !Array.isArray(suggested) ||
+      !suggested.length
+    ) {
+      if (
+        project?.orientationReady === true
+      ) {
+        suggested =
+          suggestStructure({
+            type: project.type,
+            orientation: project.orientation,
+            orientationContext:
+              project.orientationContext
+          });
+      }
+    }
 
-    setProject({
-      ...project,
-      structure
-    });
+    if (
+      Array.isArray(suggested) &&
+      suggested.length
+    ) {
+      structure = [...suggested];
 
+      setProject({
+        ...project,
+        structure
+      });
+    }
   }
-}
+
 
 
 function renderStructure() {

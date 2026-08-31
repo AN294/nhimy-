@@ -38,17 +38,39 @@ cat > public/index.html <<'EOF'
     aria-label="Nhimy"
   >
 
+    <div class="nhimy-intro-orbit orbit-one"></div>
+    <div class="nhimy-intro-orbit orbit-two"></div>
+
+    <div class="nhimy-intro-particles" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="nhimy-intro-content">
 
-      <div class="nhimy-intro-logo" aria-hidden="true">
+      <div class="nhimy-signature-symbol">
+
+        <div class="nhimy-symbol-glow"></div>
 
         <svg
           class="nhimy-cap"
-          viewBox="0 0 240 180"
+          viewBox="0 0 320 240"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
 
           <defs>
+
             <linearGradient
               id="nhimyIntroGradient"
               x1="0%"
@@ -57,48 +79,100 @@ cat > public/index.html <<'EOF'
               y2="0%"
             >
               <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="50%" stop-color="#a78bfa"/>
               <stop offset="100%" stop-color="#4c8dff"/>
             </linearGradient>
+
+            <filter
+              id="nhimyGlow"
+              x="-100%"
+              y="-100%"
+              width="300%"
+              height="300%"
+            >
+              <feGaussianBlur
+                stdDeviation="5"
+                result="blur"
+              />
+
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
           </defs>
 
+
+          <!-- CAPELO -->
+
           <path
-            class="cap-line"
-            d="M42 78 L120 42 L198 78 L120 114 Z"
+            class="cap-line cap-top"
+            d="M55 82 L160 30 L265 82 L160 134 Z"
           />
 
           <path
-            class="cap-line"
-            d="M120 114 L120 145"
+            class="cap-line cap-base"
+            d="M94 102 L94 151 Q160 184 226 151 L226 102"
           />
 
           <path
-            class="cap-line"
-            d="M94 145 H146"
+            class="cap-line cap-center"
+            d="M160 134 L160 184"
           />
 
           <path
-            class="cap-line"
-            d="M198 78 V105"
+            class="cap-line cap-string"
+            d="M265 82 V138"
           />
 
-          <path
-            class="cap-line cap-tassel"
-            d="M198 105 C211 112 211 126 198 132"
+          <circle
+            class="cap-dot"
+            cx="265"
+            cy="146"
+            r="7"
           />
+
+
+          <!-- N DENTRO DO CAPELO -->
+
+
 
         </svg>
 
       </div>
 
 
-      <div class="nhimy-intro-name">
-        NHIMY
+      <div class="nhimy-signature-name" aria-label="Nhimy">
+
+        <span>N</span>
+        <span>H</span>
+        <span>I</span>
+        <span>M</span>
+        <span>Y</span>
+
       </div>
 
 
-      <p class="nhimy-intro-tagline">
+      <div class="nhimy-signature-line"></div>
+
+
+      <p class="nhimy-signature-slogan">
         Construindo conhecimento.
       </p>
+
+
+      <p class="nhimy-signature-sub">
+        Aprender <span>•</span> Criar <span>•</span> Evoluir
+      </p>
+
+
+      <button
+        class="nhimy-intro-skip"
+        type="button"
+      >
+        Entrar
+      </button>
 
     </div>
 

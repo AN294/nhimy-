@@ -10,7 +10,7 @@
 
 (() => {
   const INTRO_KEY = "nhimy_intro_shown";
-  const AUTO_ENTER_DELAY = 2800;
+  const AUTO_ENTER_DELAY = 12000;
 
   const intro = document.getElementById("nhimyIntro");
 
@@ -50,8 +50,12 @@
     }, reduceMotion ? 120 : 650);
   };
 
-  intro.addEventListener("click", enterNHIMY, {
-    once: true
+  intro.addEventListener("click", (event) => {
+    if (
+      event.target.closest(".nhimy-intro-skip")
+    ) {
+      enterNHIMY();
+    }
   });
 
   if (reduceMotion) {
