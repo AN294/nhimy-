@@ -78,75 +78,46 @@ export function createCollectorRequest(request) {
       : [];
 
   const researchUnits =
-    (
-      existingUnits.length
-        ? existingUnits.map(
-            (unit, index) => ({
-              ...unit,
+    existingUnits.length
+      ? existingUnits
+      : questions.map(
+          (question, index) => ({
+            question:
+              typeof question === "string"
+                ? question
+                : question?.question || "",
 
-              question:
-                unit?.question ||
-                unit?.query ||
-                "",
+            query:
+              typeof question === "string"
+                ? question
+                : question?.query ||
+                  question?.question ||
+                  "",
 
-              query:
-                unit?.query ||
-                unit?.question ||
-                "",
+            intent:
+              typeof question === "object"
+                ? question?.intent || ""
+                : "",
 
-              intent:
-                unit?.intent ||
-                "",
+            researchType:
+              typeof question === "object"
+                ? question?.researchType || ""
+                : "",
 
-              researchType:
-                unit?.researchType ||
-                "",
-
-              section:
-                unit?.section ||
-                sectionTargets[index] ||
-                sectionTargets[0] ||
-                ""
-            })
-          )
-        : questions.map(
-            (question, index) => ({
-              question:
-                typeof question === "string"
-                  ? question
-                  : question?.question || "",
-
-              query:
-                typeof question === "string"
-                  ? question
-                  : question?.query ||
-                    question?.question ||
-                    "",
-
-              intent:
-                typeof question === "object"
-                  ? question?.intent || ""
-                  : "",
-
-              researchType:
-                typeof question === "object"
-                  ? question?.researchType || ""
-                  : "",
-
-              section:
-                typeof question === "object"
-                  ? question?.section ||
-                    ""
-                  : sectionTargets[index] ||
-                    sectionTargets[0] ||
-                    ""
-            })
-          )
-    ).filter(
-      unit =>
-        unit.question ||
-        unit.query
-    );
+            section:
+              typeof question === "object"
+                ? question?.section ||
+                  ""
+                : sectionTargets[index] ||
+                  sectionTargets[0] ||
+                  ""
+          })
+        )
+      .filter(
+        unit =>
+          unit.question ||
+          unit.query
+      );
 
   return {
     status: "success",
@@ -238,7 +209,6 @@ export function normalizeSource(
 
   const id =
     source.id ||
-    source.sourceId ||
     source.pmid ||
     source.pmcid ||
     url ||
@@ -273,23 +243,7 @@ export function normalizeSource(
     year:
       source.year ||
       source.publicationYear ||
-      (
-        source.publicationDate
-          ? String(source.publicationDate).slice(0, 4)
-          : ""
-      ),
-
-    publicationDate:
-      String(
-        source.publicationDate ||
-        ""
-      ),
-
-    sourceDatabase:
-      String(
-        source.sourceDatabase ||
-        "Europe PMC"
-      )
+      ""
   };
 }
 
@@ -577,26 +531,6 @@ function calculateRelevance(
   }
 
   /*
-   * Termos informativos da pergunta original.
-   * A pergunta recebe peso adicional sem substituir
-   * os critérios científicos existentes.
-   */
-  const questionTerms =
-    extractQueryTerms(
-      unit.question || ""
-    );
-
-  for (
-    const term of questionTerms
-  ) {
-    if (title.includes(term)) {
-      score += 2;
-    } else if (abstract.includes(term)) {
-      score += 1;
-    }
-  }
-
-  /*
    * Abstract disponível.
    */
   if (
@@ -852,7 +786,7 @@ async function collectResearchUnit(
   unit,
   {
     topic,
-    pageSize = 10
+    pageSize = 5
   } = {}
 ) {
   if (
@@ -918,7 +852,7 @@ async function collectResearchUnit(
 export async function collectResearch(
   request,
   {
-    pageSize = 10
+    pageSize = 5
   } = {}
 ) {
   const normalizedRequest =

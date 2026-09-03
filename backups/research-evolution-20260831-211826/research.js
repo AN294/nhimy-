@@ -1,7 +1,5 @@
 "use strict";
 
-import { buildResearchRequest } from "./research/requestBuilder.js";
-
 /*
  * =========================================================
  * NHIMY — WORK / RESEARCH
@@ -26,41 +24,80 @@ function isValidText(value) {
 
 
 export function createResearchRequest(input = {}) {
-  try {
-    return buildResearchRequest({
-      topic:
-        typeof input.topic === "string"
-          ? input.topic
-          : "",
 
-      subject:
-        typeof input.subject === "string"
-          ? input.subject
-          : "",
+  const topic =
+    isValidText(input.topic)
+      ? input.topic.trim()
+      : "";
 
-      questions:
-        Array.isArray(input.questions)
-          ? input.questions
-          : [],
+  const subject =
+    isValidText(input.subject)
+      ? input.subject.trim()
+      : "";
 
-      sections:
-        Array.isArray(input.sections)
-          ? input.sections
-          : [],
+  const questions =
+    Array.isArray(input.questions)
+      ? input.questions.filter(
+          item => isValidText(item)
+        )
+      : [];
 
-      sourcePolicy:
-        input.sourcePolicy || {}
-    });
-  } catch (error) {
+  const needs =
+    Array.isArray(input.needs)
+      ? input.needs.filter(
+          item => isValidText(item)
+        )
+      : [];
+
+  const sections =
+    Array.isArray(input.sections)
+      ? input.sections.filter(Boolean)
+      : [];
+
+  if (!topic) {
     return {
       status: "error",
       type: "work-research-request",
-      message:
-        error?.message ||
-        "Não foi possível criar a solicitação de pesquisa."
+      message: "O tema da pesquisa é obrigatório."
     };
   }
+
+  return {
+    status: "success",
+    type: "work-research-request",
+
+    topic,
+
+    subject,
+
+    questions,
+
+    needs,
+
+    sections,
+
+    queries: questions.map(question => ({
+      question,
+      topic,
+      subject
+    })),
+
+    sectionTargets: sections.map(section => ({
+      title: section.title || "",
+      purpose: section.purpose || ""
+    })),
+
+    sourcePolicy: {
+      requireSource: true,
+      preserveSourceDetails: true,
+      allowStudentMaterials: true,
+      allowExternalSources: true
+    },
+
+    nextStep: "collect"
+  };
 }
+
 
 export function createResearchResult(input = {}) {
 

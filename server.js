@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import {
   collectResearch
 } from "./public/js/core/work/research/service.js";
+import { createDevelopmentPlan } from "./public/js/core/work/development.js";
+import { createWritingPlan } from "./public/js/core/work/writing.js";
 
 const app = express();
 const PORT = process.env.PORT || 3100;
@@ -24,7 +26,7 @@ app.disable("x-powered-by");
    --------------------------------------------------------- */
 
 app.use(express.json({
-  limit: "100kb"
+  limit: "1mb"
 }));
 
 /* ---------------------------------------------------------
@@ -117,6 +119,118 @@ app.post("/api/research", async (req, res) => {
 
   } catch (error) {
     console.error("Erro Research:", error);
+
+    return res.status(400).json({
+      ok: false,
+      error: error.message
+    });
+  }
+});
+
+
+
+/* =========================================================
+   DEVELOPMENT
+   ========================================================= */
+
+app.post("/api/development", async (req, res) => {
+  try {
+    const request = req.body || {};
+    const structure = request.structure || {};
+
+    const result = createDevelopmentPlan({
+      topic:
+        request.topic ||
+        structure.topic ||
+        "",
+
+      subject:
+        request.subject ||
+        "",
+
+      sections:
+        Array.isArray(structure.sections)
+          ? structure.sections
+          : [],
+
+      findings:
+        Array.isArray(request.findings)
+          ? request.findings
+          : [],
+
+      sources:
+        Array.isArray(request.sources)
+          ? request.sources
+          : []
+    });
+
+    return res.json({
+      ok: true,
+      result
+    });
+
+  } catch (error) {
+    console.error("Erro Development:", error);
+
+    return res.status(400).json({
+      ok: false,
+      error: error.message
+    });
+  }
+});
+
+
+/* =========================================================
+   WRITING
+   ========================================================= */
+
+app.post("/api/writing", async (req, res) => {
+  try {
+    const request = req.body || {};
+
+    /*
+     * O Writing aceita:
+     * 1. { development: {...} }
+     * 2. { result: {...} } vindo diretamente do /api/development
+     * 3. payload direto de desenvolvimento
+     */
+    const development =
+      request.development ||
+      request.result ||
+      request;
+
+    const result = createWritingPlan({
+      topic:
+        request.topic ||
+        development.topic ||
+        "",
+
+      subject:
+        request.subject ||
+        development.subject ||
+        "",
+
+      sections:
+        Array.isArray(request.sections)
+          ? request.sections
+          : Array.isArray(development.sections)
+            ? development.sections.map(section =>
+                typeof section === "string"
+                  ? section
+                  : section?.section || section?.title || ""
+              ).filter(Boolean)
+            : [],
+
+      development
+    });
+
+    return res.json({
+      ok: true,
+      result
+    });
+
+  } catch (error) {
+    console.error("Erro Writing:", error);
 
     return res.status(400).json({
       ok: false,

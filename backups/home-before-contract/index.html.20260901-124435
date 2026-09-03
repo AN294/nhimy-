@@ -414,7 +414,24 @@
   </footer>
 
 
-  <script>
+  <script type="module">
+
+    import {
+      getProject
+    } from "/js/core/work/storage.js";
+
+    import {
+      getSummary,
+      isQuizCompleted,
+      getQuizResult
+    } from "/js/core/study/storage.js";
+
+
+    /*
+     * -------------------------------------------------------
+     * HOME — BUSCA
+     * -------------------------------------------------------
+     */
 
     const search =
       document.querySelector("#homeSearch");
@@ -437,20 +454,144 @@
           return;
         }
 
-        /*
-         * A busca inteligente será conectada
-         * ao motor apropriado posteriormente.
-         *
-         * Por enquanto, encaminhamos o estudante
-         * para o núcleo de Estudar.
-         */
-
         window.location.href =
           "/estudar/?q=" +
           encodeURIComponent(query);
 
       }
     );
+
+
+    /*
+     * -------------------------------------------------------
+     * HOME — ESTADO REAL
+     * -------------------------------------------------------
+     */
+
+    function updateHomeState() {
+
+      const project =
+        getProject();
+
+      const summary =
+        getSummary();
+
+      const quizCompleted =
+        isQuizCompleted();
+
+      const quizResult =
+        getQuizResult();
+
+
+      /*
+       * CONTINUE — TRABALHOS
+       */
+
+      const workItem =
+        document.querySelector(
+          ".home-continue-item[href='/trabalhos/']"
+        );
+
+      if (workItem && project) {
+
+        const title =
+          project.title ||
+          "Trabalho em andamento";
+
+        const content =
+          project.content &&
+          typeof project.content === "object"
+            ? project.content
+            : {};
+
+        const hasContent =
+          Object.values(content).some(
+            value =>
+              typeof value === "string" &&
+              value.trim().length > 0
+          );
+
+        workItem.querySelector("strong").textContent =
+          title;
+
+        workItem.querySelector("span").textContent =
+          hasContent
+            ? "Continuar desenvolvimento"
+            : "Continuar trabalho";
+
+      }
+
+
+      /*
+       * CONTINUE — ESTUDAR
+       */
+
+      const studyItem =
+        document.querySelector(
+          ".home-continue-item[href='/estudar/']"
+        );
+
+      if (studyItem && summary) {
+
+        studyItem.querySelector("strong").textContent =
+          "Estudo em andamento";
+
+        studyItem.querySelector("span").textContent =
+          quizCompleted
+            ? "Ver resultado e continuar"
+            : "Continuar os estudos";
+
+      }
+
+
+      /*
+       * PROGRESSO
+       *
+       * Não inventamos números.
+       * Enquanto não existir um cálculo global real,
+       * mostramos um estado neutro.
+       */
+
+      const progress =
+        document.querySelector(".progress-circle strong");
+
+      if (progress) {
+
+        progress.textContent =
+          summary || project
+            ? "Em curso"
+            : "0%";
+
+      }
+
+
+      /*
+       * RESULTADO DO QUIZ
+       */
+
+      if (
+        quizCompleted &&
+        quizResult
+      ) {
+
+        const motivation =
+          document.querySelector(
+            ".home-motivation"
+          );
+
+        if (motivation) {
+
+          motivation.textContent =
+            "Último quiz concluído. Continua a aprender e evoluir.";
+
+        }
+
+      }
+
+    }
+
+
+    updateHomeState();
 
   </script>
 

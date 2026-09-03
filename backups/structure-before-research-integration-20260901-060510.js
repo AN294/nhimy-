@@ -232,54 +232,55 @@ export function buildResearchStructure({
 
   const sections = [...base];
 
-  const researchSections = [];
+  const dynamicSections = [];
 
-  for (const finding of findings) {
-    if (!finding || typeof finding !== "object") {
-      continue;
-    }
-
-    const section = cleanText(finding.section);
+  for (const topicItem of researchTopics) {
+    const section = createSectionForTopic(topicItem);
 
     if (
       section &&
-      !researchSections.some(
+      !dynamicSections.some(
         item =>
-          normalizeText(item) === normalizeText(section)
+          normalizeText(item.title) ===
+          normalizeText(section)
       )
     ) {
-      researchSections.push(section);
-    }
-  }
-
-  const finalSections = [...sections];
-
-  for (const researchSection of researchSections) {
-    const existingIndex = finalSections.findIndex(
-      section =>
-        normalizeText(section) ===
-        normalizeText(researchSection)
-    );
-
-    if (existingIndex >= 0) {
-      continue;
-    }
-
-    const conclusionIndex = finalSections.findIndex(
-      section =>
-        normalizeText(section) === "conclusao"
-    );
-
-    if (conclusionIndex >= 0) {
-      finalSections.splice(
-        conclusionIndex,
-        0,
-        researchSection
-      );
+      dynamicSections.push({
+        title: section,
+        sourceQuestions: [topicItem]
+      });
     } else {
-      finalSections.push(researchSection);
+      const existing = dynamicSections.find(
+        item =>
+          normalizeText(item.title) ===
+          normalizeText(section)
+      );
+
+      if (existing && !existing.sourceQuestions.includes(topicItem)) {
+        existing.sourceQuestions.push(topicItem);
+      }
     }
   }
+
+  /*
+   * Inserimos as partes derivadas da Research
+   * antes da conclusão/referências.
+   */
+
+  const insertionIndex = sections.findIndex(
+    section => normalizeText(section) === "conclusao"
+  );
+
+  const index =
+    insertionIndex >= 0
+      ? insertionIndex
+      : sections.length;
+
+  const finalSections = [
+    ...sections.slice(0, index),
+    ...dynamicSections.map(item => item.title),
+    ...sections.slice(index)
+  ];
 
   return {
     type: "work-structure-result",
@@ -319,87 +320,27 @@ export function buildResearchSections({
     return [];
   }
 
-  const groups = [];
-
-  for (const finding of findings) {
-    if (!finding || typeof finding !== "object") {
-      continue;
-    }
-
-    const question = cleanText(finding.question);
-    const section = cleanText(finding.section);
-
-    if (!question) {
-      continue;
-    }
-
-    const key =
-      `${normalizeText(section)}::${normalizeText(question)}`;
-
-    let group = groups.find(
-      item => item.key === key
-    );
-
-    if (!group) {
-      group = {
-        key,
-        question,
-        section,
-        findings: [],
-        sourceIds: [],
-        relevance: 0
-      };
-
-      groups.push(group);
-    }
-
-    group.findings.push(finding);
-
-    if (Array.isArray(finding.sourceIds)) {
-      for (const sourceId of finding.sourceIds) {
-        if (
-          sourceId &&
-          !group.sourceIds.includes(sourceId)
-        ) {
-          group.sourceIds.push(sourceId);
-        }
-      }
-    }
-
-    if (
-      Number.isFinite(finding.relevance) &&
-      finding.relevance > group.relevance
-    ) {
-      group.relevance = finding.relevance;
-    }
-  }
-
-  return groups.map((group, index) => ({
+  return findings.map((finding, index) => ({
     id: `research-section-${index + 1}`,
 
     title:
-      createSectionForTopic(group.question) ||
-      group.section ||
+      createSectionForTopic(finding?.question) ||
       `Tópico ${index + 1}`,
 
-    question: group.question,
+    question: cleanText(finding?.question),
 
-    section: group.section,
+    section: cleanText(finding?.section),
 
-    findings: group.findings,
+    text: cleanText(finding?.text),
 
-    findingCount: group.findings.length,
+    sourceIds: Array.isArray(finding?.sourceIds)
+      ? finding.sourceIds
+      : [],
 
-    text: cleanText(
-      group.findings
-        .map(finding => finding?.text)
-        .filter(Boolean)
-        .join("\n\n")
-    ),
-
-    sourceIds: group.sourceIds,
-
-    relevance: group.relevance
+    relevance:
+      Number.isFinite(finding?.relevance)
+        ? finding.relevance
+        : 0
   }));
 }
 

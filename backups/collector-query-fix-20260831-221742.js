@@ -78,75 +78,46 @@ export function createCollectorRequest(request) {
       : [];
 
   const researchUnits =
-    (
-      existingUnits.length
-        ? existingUnits.map(
-            (unit, index) => ({
-              ...unit,
+    existingUnits.length
+      ? existingUnits
+      : questions.map(
+          (question, index) => ({
+            question:
+              typeof question === "string"
+                ? question
+                : question?.question || "",
 
-              question:
-                unit?.question ||
-                unit?.query ||
-                "",
+            query:
+              typeof question === "string"
+                ? question
+                : question?.query ||
+                  question?.question ||
+                  "",
 
-              query:
-                unit?.query ||
-                unit?.question ||
-                "",
+            intent:
+              typeof question === "object"
+                ? question?.intent || ""
+                : "",
 
-              intent:
-                unit?.intent ||
-                "",
+            researchType:
+              typeof question === "object"
+                ? question?.researchType || ""
+                : "",
 
-              researchType:
-                unit?.researchType ||
-                "",
-
-              section:
-                unit?.section ||
-                sectionTargets[index] ||
-                sectionTargets[0] ||
-                ""
-            })
-          )
-        : questions.map(
-            (question, index) => ({
-              question:
-                typeof question === "string"
-                  ? question
-                  : question?.question || "",
-
-              query:
-                typeof question === "string"
-                  ? question
-                  : question?.query ||
-                    question?.question ||
-                    "",
-
-              intent:
-                typeof question === "object"
-                  ? question?.intent || ""
-                  : "",
-
-              researchType:
-                typeof question === "object"
-                  ? question?.researchType || ""
-                  : "",
-
-              section:
-                typeof question === "object"
-                  ? question?.section ||
-                    ""
-                  : sectionTargets[index] ||
-                    sectionTargets[0] ||
-                    ""
-            })
-          )
-    ).filter(
-      unit =>
-        unit.question ||
-        unit.query
-    );
+            section:
+              typeof question === "object"
+                ? question?.section ||
+                  ""
+                : sectionTargets[index] ||
+                  sectionTargets[0] ||
+                  ""
+          })
+        )
+      .filter(
+        unit =>
+          unit.question ||
+          unit.query
+      );
 
   return {
     status: "success",

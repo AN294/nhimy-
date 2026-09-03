@@ -82,13 +82,6 @@ function createProject(data = {}) {
         ? [...data.structure]
         : [],
 
-    developmentPlan:
-      data.developmentPlan &&
-      typeof data.developmentPlan === "object" &&
-      !Array.isArray(data.developmentPlan)
-        ? { ...data.developmentPlan }
-        : null,
-
     content:
       data.content &&
       typeof data.content === "object" &&

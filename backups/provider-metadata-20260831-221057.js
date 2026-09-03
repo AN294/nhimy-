@@ -184,50 +184,13 @@ export function normalizeEuropePMCResult(
     );
 
   const publisher =
-    article.publisher ||
-    article.publisherName ||
-    "";
-
-  const journal =
-    article.journalInfo?.journal?.title ||
     article.journalTitle ||
-    "";
-
-  const year =
-    article.pubYear ||
-    article.journalInfo?.yearOfPublication ||
-    (
-      article.firstPublicationDate
-        ? String(article.firstPublicationDate).slice(0, 4)
-        : ""
-    );
+    "Europe PMC";
 
   return {
-    id:
-      article.id ||
-      article.pmid ||
-      article.pmcid ||
-      "",
-
-    sourceId:
-      article.id ||
-      article.pmid ||
-      article.pmcid ||
-      "",
-
-    pmid:
-      article.pmid || "",
-
-    pmcid:
-      article.pmcid || "",
-
-    doi:
-      article.doi || "",
-
     title,
     url,
     publisher,
-    journal,
 
     abstract:
       typeof article.abstractText === "string"
@@ -241,25 +204,19 @@ export function normalizeEuropePMCResult(
               firstName:
                 author.firstName || "",
               lastName:
-                author.lastName || "",
-              fullName:
-                author.fullName || "",
-              initials:
-                author.initials || ""
+                author.lastName || ""
             })
           )
         : [],
 
-    year,
-
     publicationDate:
-      article.firstPublicationDate ||
-      article.journalInfo?.dateOfPublication ||
-      "",
+      article.firstPublicationDate || "",
+
+    sourceId:
+      article.id || "",
 
     sourceDatabase:
-      article.source ||
-      "Europe PMC"
+      article.source || "Europe PMC"
   };
 }
 
