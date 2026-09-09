@@ -3,456 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>NHIMY — O teu parceiro inteligente de estudos</title>
-
-  <meta
-    name="description"
-    content="NHIMY — Estuda melhor, trabalha melhor, organiza-te."
-  >
-
+  <meta name="description" content="NHIMY — Estuda melhor, trabalha melhor, organiza-te.">
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/home-mobile-nav.css">
 </head>
-
 <body>
-
   <header class="home-header">
-
-    <a
-      href="/"
-      class="home-brand"
-      aria-label="NHIMY — Início"
-    >
-      NHIMY
-    </a>
-
+    <a href="/" class="home-brand" aria-label="NHIMY — Início">NHIMY</a>
     <nav class="home-nav" aria-label="Navegação principal">
-
-      <a href="/" class="active">
-        Início
-      </a>
-
-      <a href="/estudar/">
-        Estudar
-      </a>
-
-      <a href="/trabalhos/">
-        Trabalhos
-      </a>
-
-      <a href="/organizar/">
-        Organizar
-      </a>
-
-      <a href="/ferramentas/">
-        Ferramentas
-      </a>
-
+      <a href="/" class="active">Início</a>
+      <a href="/estudar/">Estudar</a>
+      <a href="/trabalhos/">Trabalhos</a>
+      <a href="/organizar/">Organizar</a>
+      <a href="/ferramentas/">Ferramentas</a>
     </nav>
-
-    <div class="home-profile" aria-label="Perfil">
-      👤
-    </div>
-
+    <div class="home-profile" aria-label="Perfil">👤</div>
   </header>
 
-
   <main class="home-main">
-
-    <!-- HERO -->
-
     <section class="home-hero">
-
       <div class="home-hero-content">
-
-        <span class="home-eyebrow">
-          NHIMY ESTUDANTE
-        </span>
-
-        <h1>
-          Olá, Estudante! 👋
-        </h1>
-
-        <p>
-          Vamos aprender algo incrível hoje?
-        </p>
-
-        <form
-          class="home-search"
-          id="homeSearch"
-        >
-          <input
-            id="homeSearchInput"
-            type="search"
-            placeholder="O que queres estudar, resumir ou fazer?"
-            autocomplete="off"
-          >
-
-          <button type="submit">
-            Buscar
-          </button>
+        <span class="home-eyebrow">NHIMY ESTUDANTE</span>
+        <h1>Olá, Estudante! 👋</h1>
+        <p>Vamos aprender algo incrível hoje?</p>
+        <form class="home-search" id="homeSearch">
+          <input id="homeSearchInput" type="search" placeholder="O que queres estudar, resumir ou fazer?" autocomplete="off">
+          <button type="submit">Buscar</button>
         </form>
-
       </div>
-
-
       <aside class="home-progress">
-
-        <div class="home-section-label">
-          O teu progresso
-        </div>
-
-        <div class="progress-circle">
-          <strong>78%</strong>
-        </div>
-
+        <div class="home-section-label">O teu progresso</div>
+        <div class="progress-circle"><strong>78%</strong></div>
         <div class="progress-stats">
-
-          <div>
-            <strong>12</strong>
-            <span>dias seguidos</span>
-          </div>
-
-          <div>
-            <strong>7</strong>
-            <span>estudos esta semana</span>
-          </div>
-
+          <div><strong>12</strong><span>dias seguidos</span></div>
+          <div><strong>7</strong><span>estudos esta semana</span></div>
         </div>
-
-        <p class="home-motivation">
-          Grandes resultados começam com pequenos passos.
-        </p>
-
+        <p class="home-motivation">Grandes resultados começam com pequenos passos.</p>
       </aside>
-
     </section>
 
-
-    <!-- ÁREAS PRINCIPAIS -->
-
     <section class="home-section">
-
-      <div class="home-section-heading">
-
-        <div>
-          <span class="home-eyebrow">
-            ÁREAS PRINCIPAIS
-          </span>
-
-          <h2>
-            Tudo o que precisas num só lugar
-          </h2>
-        </div>
-
-      </div>
-
-
+      <div class="home-section-heading"><div><span class="home-eyebrow">ÁREAS PRINCIPAIS</span><h2>Tudo o que precisas num só lugar</h2></div></div>
       <div class="home-modules">
-
-        <a
-          class="home-module home-module-study"
-          href="/estudar/"
-        >
-          <span class="home-module-icon">📚</span>
-
-          <h3>
-            Estudar
-          </h3>
-
-          <p>
-            Resuma, explique, memorize e teste os teus conhecimentos.
-          </p>
-
-          <span class="home-module-link">
-            Explorar →
-          </span>
-        </a>
-
-
-        <a
-          class="home-module home-module-work"
-          href="/trabalhos/"
-        >
-          <span class="home-module-icon">📝</span>
-
-          <h3>
-            Trabalhos
-          </h3>
-
-          <p>
-            Crie, desenvolva, revise e prepare os teus trabalhos passo a passo.
-          </p>
-
-          <span class="home-module-link">
-            Explorar →
-          </span>
-        </a>
-
-
-        <a
-          class="home-module home-module-organize"
-          href="/organizar/"
-        >
-          <span class="home-module-icon">📅</span>
-
-          <h3>
-            Organizar
-          </h3>
-
-          <p>
-            Gerencie tarefas, metas, notas e o teu plano de estudos.
-          </p>
-
-          <span class="home-module-link">
-            Explorar →
-          </span>
-        </a>
-
-
-        <a
-          class="home-module home-module-tools"
-          href="/ferramentas/"
-        >
-          <span class="home-module-icon">🧰</span>
-
-          <h3>
-            Ferramentas
-          </h3>
-
-          <p>
-            Ferramentas úteis para facilitar os teus estudos e tarefas.
-          </p>
-
-          <span class="home-module-link">
-            Explorar →
-          </span>
-        </a>
-
+        <a class="home-module home-module-study" href="/estudar/"><span class="home-module-icon">📚</span><h3>Estudar</h3><p>Resuma, explique, memorize e teste os teus conhecimentos.</p><span class="home-module-link">Explorar →</span></a>
+        <a class="home-module home-module-work" href="/trabalhos/"><span class="home-module-icon">📝</span><h3>Trabalhos</h3><p>Crie, desenvolva, revise e prepare os teus trabalhos passo a passo.</p><span class="home-module-link">Explorar →</span></a>
+        <a class="home-module home-module-organize" href="/organizar/"><span class="home-module-icon">📅</span><h3>Organizar</h3><p>Gerencie tarefas, metas, notas e o teu plano de estudos.</p><span class="home-module-link">Explorar →</span></a>
+        <a class="home-module home-module-tools" href="/ferramentas/"><span class="home-module-icon">🧰</span><h3>Ferramentas</h3><p>Ferramentas úteis para facilitar os teus estudos e tarefas.</p><span class="home-module-link">Explorar →</span></a>
       </div>
-
     </section>
 
-
-    <!-- CONTINUE -->
-
     <section class="home-section">
-
-      <div class="home-section-heading">
-
-        <div>
-          <span class="home-eyebrow">
-            CONTINUE DE ONDE PAROU
-          </span>
-
-          <h2>
-            Volta rapidamente ao que estavas a fazer
-          </h2>
-        </div>
-
-      </div>
-
-
+      <div class="home-section-heading"><div><span class="home-eyebrow">CONTINUE DE ONDE PAROU</span><h2>Volta rapidamente ao que estavas a fazer</h2></div></div>
       <div class="home-continue">
-
-        <a
-          href="/estudar/"
-          class="home-continue-item"
-        >
-          <div>
-            <strong>
-              Estudar
-            </strong>
-
-            <span>
-              Continua os teus estudos
-            </span>
-          </div>
-
-          <span>
-            →
-          </span>
-        </a>
-
-
-        <a
-          href="/trabalhos/"
-          class="home-continue-item"
-        >
-          <div>
-            <strong>
-              Trabalhos
-            </strong>
-
-            <span>
-              Continua um trabalho em desenvolvimento
-            </span>
-          </div>
-
-          <span>
-            →
-          </span>
-        </a>
-
-
-        <a
-          href="/organizar/"
-          class="home-continue-item"
-        >
-          <div>
-            <strong>
-              Organização
-            </strong>
-
-            <span>
-              Consulta tarefas e metas
-            </span>
-          </div>
-
-          <span>
-            →
-          </span>
-        </a>
-
+        <a href="/estudar/" class="home-continue-item"><div><strong>Estudar</strong><span>Continua os teus estudos</span></div><span>→</span></a>
+        <a href="/trabalhos/" class="home-continue-item"><div><strong>Trabalhos</strong><span>Continua um trabalho em desenvolvimento</span></div><span>→</span></a>
+        <a href="/organizar/" class="home-continue-item"><div><strong>Organização</strong><span>Consulta tarefas e metas</span></div><span>→</span></a>
       </div>
-
     </section>
-
-
-    <!-- ACESSOS RÁPIDOS -->
 
     <section class="home-section">
-
-      <div class="home-section-heading">
-
-        <div>
-          <span class="home-eyebrow">
-            ACESSOS RÁPIDOS
-          </span>
-
-          <h2>
-            Faz mais rapidamente
-          </h2>
-        </div>
-
-      </div>
-
-
+      <div class="home-section-heading"><div><span class="home-eyebrow">ACESSOS RÁPIDOS</span><h2>Faz mais rapidamente</h2></div></div>
       <div class="home-quick">
-
-        <a href="/estudar/resumir/">
-          📝 Resumo de texto
-        </a>
-
-        <a href="/ferramentas/">
-          📄 Gerar PDF
-        </a>
-
-        <a href="/ferramentas/">
-          🔄 Converter
-        </a>
-
-        <a href="/estudar/">
-          ✨ Corrigir texto
-        </a>
-
-        <a href="/ferramentas/">
-          ⋯ Outros
-        </a>
-
+        <a href="/estudar/resumir/">📝 Resumo de texto</a>
+        <a href="/ferramentas/">📄 Gerar PDF</a>
+        <a href="/ferramentas/">🔄 Converter</a>
+        <a href="/estudar/">✨ Corrigir texto</a>
+        <a href="/ferramentas/">⋯ Outros</a>
       </div>
-
     </section>
-
-
-    <!-- SUGESTÕES -->
 
     <section class="home-section home-suggestions">
-
-      <div>
-
-        <span class="home-eyebrow">
-          SUGESTÕES PARA TI
-        </span>
-
-        <h2>
-          Que tal explorar um novo assunto?
-        </h2>
-
-      </div>
-
-
+      <div><span class="home-eyebrow">SUGESTÕES PARA TI</span><h2>Que tal explorar um novo assunto?</h2></div>
       <div class="home-tags">
-
-        <a href="/estudar/">
-          Saúde da Mulher
-        </a>
-
-        <a href="/estudar/">
-          Ciências da Terra
-        </a>
-
-        <a href="/estudar/">
-          Matemática
-        </a>
-
-        <a href="/estudar/">
-          Informática
-        </a>
-
+        <a href="/estudar/">Saúde da Mulher</a><a href="/estudar/">Ciências da Terra</a><a href="/estudar/">Matemática</a><a href="/estudar/">Informática</a>
       </div>
-
     </section>
-
   </main>
 
+  <nav class="mobile-bottom-nav" aria-label="Acesso rápido">
+    <a href="/" class="active" aria-current="page"><span aria-hidden="true">⌂</span><small>Início</small></a>
+    <a href="/estudar/"><span aria-hidden="true">📚</span><small>Estudar</small></a>
+    <a href="/trabalhos/"><span aria-hidden="true">📝</span><small>Trabalhos</small></a>
+    <a href="/organizar/"><span aria-hidden="true">📅</span><small>Organizar</small></a>
+  </nav>
 
-  <footer class="home-footer">
-    <p>
-      Nhimy Estudante — O conhecimento na tua mão.
-    </p>
-  </footer>
-
+  <footer class="home-footer"><p>Nhimy Estudante — O conhecimento na tua mão.</p></footer>
 
   <script>
-
-    const search =
-      document.querySelector("#homeSearch");
-
-    const input =
-      document.querySelector("#homeSearchInput");
-
-
-    search.addEventListener(
-      "submit",
-      (event) => {
-
-        event.preventDefault();
-
-        const query =
-          input.value.trim();
-
-        if (!query) {
-          input.focus();
-          return;
-        }
-
-        /*
-         * A busca inteligente será conectada
-         * ao motor apropriado posteriormente.
-         *
-         * Por enquanto, encaminhamos o estudante
-         * para o núcleo de Estudar.
-         */
-
-        window.location.href =
-          "/estudar/?q=" +
-          encodeURIComponent(query);
-
-      }
-    );
-
+    const search=document.querySelector('#homeSearch');
+    const input=document.querySelector('#homeSearchInput');
+    search.addEventListener('submit',(event)=>{event.preventDefault();const query=input.value.trim();if(!query){input.focus();return;}window.location.href='/estudar/?q='+encodeURIComponent(query);});
   </script>
-
 </body>
 </html>
