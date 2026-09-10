@@ -1,0 +1,1 @@
+Pacote de ajustes 3.18.0 recebido e preparado para publicação no Git.
