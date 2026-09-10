@@ -13,59 +13,310 @@
   <link rel="stylesheet" href="/css/layout/container.css">
   <link rel="stylesheet" href="/css/layout/header.css">
   <link rel="stylesheet" href="/css/components/buttons.css">
-  <link rel="stylesheet" href="/css/components/polish.css">
+<link rel="stylesheet" href="/css/components/polish.css">
   <link rel="stylesheet" href="/css/components/intro.css">
   <link rel="stylesheet" href="/css/components/cards.css">
   <link rel="stylesheet" href="/css/pages/estudante.css">
   <link rel="stylesheet" href="/css/pages/home.css">
-  <link rel="stylesheet" href="/css/nhimy-final-visual.css">
+  <script>
+    try {
+      if (localStorage.getItem("nhimy.theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (_) {}
+  </script>
 </head>
 <body class="student-page">
-  <div id="nhimyIntro" class="nhimy-intro" role="presentation" aria-label="Nhimy">
+
+  <!-- =====================================================
+       NHIMY 3.0 — ASSINATURA DE ENTRADA
+       ===================================================== -->
+
+  <div
+    id="nhimyIntro"
+    class="nhimy-intro"
+    role="presentation"
+    aria-label="Nhimy"
+  >
+
     <div class="nhimy-intro-orbit orbit-one"></div>
     <div class="nhimy-intro-orbit orbit-two"></div>
-    <div class="nhimy-intro-particles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="nhimy-intro-content">
-      <div class="nhimy-signature-symbol"><div class="nhimy-symbol-glow"></div><svg class="nhimy-cap" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nhimyIntroGradient" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="50%" stop-color="#2563eb"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient><filter id="nhimyGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path class="cap-line cap-top" d="M55 82 L160 30 L265 82 L160 134 Z"/><path class="cap-line cap-base" d="M94 102 L94 151 Q160 184 226 151 L226 102"/><path class="cap-line cap-center" d="M160 134 L160 184"/><path class="cap-line cap-string" d="M265 82 V138"/><circle class="cap-dot" cx="265" cy="146" r="7"/></svg></div>
-      <div class="nhimy-signature-name" aria-label="Nhimy"><span>N</span><span>H</span><span>I</span><span>M</span><span>Y</span></div>
-      <div class="nhimy-signature-line"></div>
-      <p class="nhimy-signature-slogan">Construindo conhecimento.</p>
-      <p class="nhimy-signature-sub">Aprender <span>•</span> Criar <span>•</span> Evoluir</p>
-      <button class="nhimy-intro-skip" type="button">Entrar</button>
+
+    <div class="nhimy-intro-particles" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <div class="nhimy-intro-content">
+
+      <div class="nhimy-signature-symbol">
+
+        <div class="nhimy-symbol-glow"></div>
+
+        <svg
+          class="nhimy-cap"
+          viewBox="0 0 320 240"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+
+          <defs>
+
+            <linearGradient
+              id="nhimyIntroGradient"
+              x1="0%"
+              y1="100%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="50%" stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+
+            <filter
+              id="nhimyGlow"
+              x="-100%"
+              y="-100%"
+              width="300%"
+              height="300%"
+            >
+              <feGaussianBlur
+                stdDeviation="5"
+                result="blur"
+              />
+
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
+          </defs>
+
+
+          <!-- CAPELO -->
+
+          <path
+            class="cap-line cap-top"
+            d="M55 82 L160 30 L265 82 L160 134 Z"
+          />
+
+          <path
+            class="cap-line cap-base"
+            d="M94 102 L94 151 Q160 184 226 151 L226 102"
+          />
+
+          <path
+            class="cap-line cap-center"
+            d="M160 134 L160 184"
+          />
+
+          <path
+            class="cap-line cap-string"
+            d="M265 82 V138"
+          />
+
+          <circle
+            class="cap-dot"
+            cx="265"
+            cy="146"
+            r="7"
+          />
+
+
+
+
+        </svg>
+
+      </div>
+
+
+      <div class="nhimy-signature-name" aria-label="Nhimy">
+
+        <span>N</span>
+        <span>H</span>
+        <span>I</span>
+        <span>M</span>
+        <span>Y</span>
+
+      </div>
+
+
+      <div class="nhimy-signature-line"></div>
+
+
+      <p class="nhimy-signature-slogan">
+        Construindo conhecimento.
+      </p>
+
+
+      <p class="nhimy-signature-sub">
+        Aprender <span>•</span> Criar <span>•</span> Evoluir
+      </p>
+
+
+      <button
+        class="nhimy-intro-skip"
+        type="button"
+      >
+        Entrar
+      </button>
+
+    </div>
+
   </div>
 
+
+
 <header class="site-header">
-  <div class="container header-content home-header">
-    <a href="/" class="logo" aria-label="Nhimy início"><span class="logo-mark">N</span><span>Nhimy <small>Estudante</small></span></a>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="/" aria-current="page">Início</a><a href="/estudar/">Estudar</a><a href="/trabalhos/">Trabalhos</a><a href="/organizar/">Organizar</a><a href="/ferramentas/">Ferramentas</a><a href="/biblioteca/">Biblioteca</a><a href="/perfil/">Perfil</a><a href="/entrar/">Entrar</a>
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="Nhimy início">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span class="brand-name">NHIMY<small>Estudante</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="/" aria-current="page" class="active">Início</a>
+      <a href="/estudar/">Estudar</a>
+      <a href="/trabalhos/">Trabalhos</a>
+      <a href="/organizar/">Organizar</a>
+      <a href="/ferramentas/">Ferramentas</a>
+      <a href="/biblioteca/">Biblioteca</a>
+      <a href="/perfil/">Perfil</a>
     </nav>
-    <button id="homeNotifications" class="icon-button" type="button" aria-label="Notificações" aria-expanded="false">🔔</button>
+    <div class="header-actions">
+      <button id="homeNotifications" class="icon-button" type="button" aria-label="Notificações" aria-expanded="false">🔔</button>
+      <button class="icon-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Ativar modo escuro">🌙</button>
+      <a href="/perfil/" class="profile-chip" aria-label="Ver perfil">
+        <span class="profile-chip-avatar" id="profileInitial">E</span>
+        <span class="profile-chip-text"><strong id="profileName">Estudante</strong><small>Ver perfil</small></span>
+      </a>
+    </div>
+    <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main>
-<section class="student-section home-hero"><div class="container"><div class="hero-content"><p class="student-label">NHIMY ESTUDANTE</p><h1 class="student-title">Olá! 👋 <strong>O que vamos fazer hoje?</strong></h1><p>Estude, faça seus trabalhos e organize o que precisa — tudo conectado ao seu fluxo.</p><form id="homeSearch" class="student-search" role="search"><span aria-hidden="true">⌕</span><input id="homeSearchInput" type="search" placeholder="O que queres estudar, fazer ou organizar?" autocomplete="off" aria-label="Pesquisar no Nhimy"></form><p id="homeSearchMessage" class="home-search-message" aria-live="polite"></p></div></div></section>
+<section class="student-section home-hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="student-label">NHIMY ESTUDANTE</p>
+      <h1 class="student-title">Olá! 👋 <strong>O que vamos fazer hoje?</strong></h1>
+      <p>Estude, faça seus trabalhos e organize o que precisa — tudo conectado ao seu fluxo.</p>
+      <form id="homeSearch" class="student-search" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="homeSearchInput" type="search" placeholder="O que queres estudar, fazer ou organizar?" autocomplete="off" aria-label="Pesquisar no Nhimy">
+      </form>
+      <p id="homeSearchMessage" class="home-search-message" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
 
-<section class="student-section primary-actions" aria-labelledby="areasTitle"><div class="container"><div class="student-section-header"><div><p class="student-label">Seu espaço</p><h2 id="areasTitle">Áreas principais</h2><p>Quatro caminhos conectados para estudar, realizar e organizar.</p></div></div><div class="home-area-grid"><a class="home-area-card study-card" href="/estudar/"><span class="home-area-icon">📚</span><div><h3>Estudar</h3><p>Compreenda, resuma, revise e pratique.</p></div><span class="home-arrow">→</span></a><a class="home-area-card work-card" href="/trabalhos/"><span class="home-area-icon">📝</span><div><h3>Trabalhos</h3><p>Pesquise, estruture, desenvolva e finalize.</p></div><span class="home-arrow">→</span></a><a class="home-area-card library-card" href="/biblioteca/"><span class="home-area-icon">📚</span><div><h3>Biblioteca</h3><p>Guarde e reencontre o seu conhecimento.</p></div><span class="home-arrow">→</span></a><a class="home-area-card organize-card" href="/organizar/"><span class="home-area-icon">📅</span><div><h3>Organizar</h3><p>Tarefas, metas, notas e agenda.</p></div><span class="home-arrow">→</span></a><a class="home-area-card tools-card" href="/ferramentas/"><span class="home-area-icon">🧰</span><div><h3>Ferramentas</h3><p>Utilidades rápidas para o seu dia.</p></div><span class="home-arrow">→</span></a></div></div></section>
+<section class="student-section" aria-label="Resumo do estudante">
+  <div class="container profile-panels">
+    <article class="profile-ring-card">
+      <div class="progress-ring" id="overallRing"><span id="overallRingValue">0%</span></div>
+      <p>Continue assim! Você está indo muito bem nos seus estudos.</p>
+      <a href="/estudar/">Ver detalhes →</a>
+    </article>
+    <article class="profile-quote-card">
+      <blockquote id="homeQuote">A disciplina é a ponte entre metas e conquistas.</blockquote>
+      <cite>— Nhimy</cite>
+    </article>
+    <article class="profile-stats-card" id="studyStatsCard" aria-label="Seu progresso nos estudos"></article>
+  </div>
+</section>
 
-<section class="student-section" aria-labelledby="continueTitle"><div class="container"><div class="student-section-header"><div><p class="student-label">Próxima ação</p><h2 id="continueTitle">Continue de onde parou</h2><p id="continueSubtitle">O Nhimy encontrou o que merece sua atenção agora.</p></div></div><div id="continueGrid" class="continue-grid"><a class="continue-card" href="/estudar/"><span class="continue-icon">📚</span><span class="continue-body"><strong>Começar uma nova jornada</strong><small>Escolha uma área para começar</small><span class="student-progress-bar"><span class="student-progress-value progress-0"></span></span></span><span class="continue-arrow">→</span></a><a class="continue-card" href="/trabalhos/"><span class="continue-icon">📝</span><span class="continue-body"><strong>Trabalhos</strong><small>Crie ou continue um trabalho</small></span><span class="continue-arrow">→</span></a><a class="continue-card" href="/organizar/"><span class="continue-icon">☑️</span><span class="continue-body"><strong>Organização</strong><small>Consulta tarefas, metas e agenda</small></span><span class="continue-arrow">→</span></a></div></div></section>
+<section class="student-section primary-actions" aria-labelledby="areasTitle">
+  <div class="container">
+    <div class="student-section-header"><div><p class="student-label">Seu espaço</p><h2 id="areasTitle">Áreas principais</h2><p>Quatro caminhos conectados para estudar, realizar e organizar.</p></div></div>
+    <div class="home-area-grid">
+      <a class="home-area-card study-card" href="/estudar/"><span class="home-area-icon">📚</span><div><h3>Estudar</h3><p>Compreenda, resuma, revise e pratique.</p></div><span class="home-arrow">→</span></a>
+      <a class="home-area-card work-card" href="/trabalhos/"><span class="home-area-icon">📝</span><div><h3>Trabalhos</h3><p>Pesquise, estruture, desenvolva e finalize.</p></div><span class="home-arrow">→</span></a>
+      <a class="home-area-card library-card" href="/biblioteca/"><span class="home-area-icon">📚</span><div><h3>Biblioteca</h3><p>Guarde e reencontre o seu conhecimento.</p></div><span class="home-arrow">→</span></a>
+      <a class="home-area-card organize-card" href="/organizar/"><span class="home-area-icon">📅</span><div><h3>Organizar</h3><p>Tarefas, metas, notas e agenda.</p></div><span class="home-arrow">→</span></a>
+      <a class="home-area-card tools-card" href="/ferramentas/"><span class="home-area-icon">🧰</span><div><h3>Ferramentas</h3><p>Utilidades rápidas para o seu dia.</p></div><span class="home-arrow">→</span></a>
+    </div>
+  </div>
+</section>
 
-<section class="student-section" aria-labelledby="progressTitle"><div class="container home-dashboard-grid"><article class="home-panel"><div class="student-section-header compact"><div><p class="student-label">Acompanhamento</p><h2 id="progressTitle">Seu progresso</h2></div></div><div id="progressList" class="progress-list"><div class="progress-row"><div class="progress-row-head"><strong>Estudar</strong><span>0%</span></div><div class="student-progress-bar"><span class="student-progress-value progress-0"></span></div><small>Pronto para começar</small></div><div class="progress-row"><div class="progress-row-head"><strong>Trabalhos</strong><span>0%</span></div><div class="student-progress-bar"><span class="student-progress-value progress-0"></span></div><small>Nenhum trabalho em andamento</small></div><div class="progress-row"><div class="progress-row-head"><strong>Organizar</strong><span>0%</span></div><div class="student-progress-bar"><span class="student-progress-value progress-0"></span></div><small>Sem itens acompanháveis ainda</small></div></div></article><article class="home-panel"><div class="student-section-header compact"><div><p class="student-label">Organização</p><h2>Visão rápida</h2></div></div><div id="organizeStats" class="stats-grid"><div class="stat-card"><span>☑️</span><strong>0</strong><small>Tarefas</small></div><div class="stat-card"><span>🎯</span><strong>0</strong><small>Metas</small></div><div class="stat-card"><span>🗒️</span><strong>0</strong><small>Notas</small></div><div class="stat-card"><span>📅</span><strong>0</strong><small>Eventos</small></div></div></article></div></section>
+<section class="student-section" aria-labelledby="continueTitle">
+  <div class="container">
+    <div class="student-section-header"><div><p class="student-label">Próxima ação</p><h2 id="continueTitle">Continue de onde parou</h2><p id="continueSubtitle">O Nhimy encontrou o que merece sua atenção agora.</p></div></div>
+    <div id="continueGrid" class="continue-grid"></div>
+  </div>
+</section>
 
-<section class="student-section" aria-labelledby="actionPlanTitle"><div class="container"><div class="student-section-header"><div><p class="student-label">Integração</p><h2 id="actionPlanTitle">Plano de ação</h2><p>O Nhimy conecta o que você está estudando, produzindo e organizando.</p></div></div><div id="actionPlan" class="action-plan" aria-live="polite"><article class="journey-primary"><div class="journey-primary-head"><span class="action-source">PRÓXIMO PASSO</span><span class="journey-mode">Você escolhe</span></div><div class="journey-primary-body"><span class="journey-primary-icon">📚</span><div><h3>Começar a estudar</h3><p>Escolhe um conteúdo e entra no teu fluxo de estudo.</p><small><strong>Por quê?</strong> O Nhimy está pronto para acompanhar o teu percurso.</small></div></div><div class="action-card-actions"><a class="button button-primary" href="/estudar/">Começar</a></div></article></div></div></section>
+<section class="student-section" aria-labelledby="progressTitle">
+  <div class="container home-dashboard-grid">
+    <article class="home-panel">
+      <div class="student-section-header compact"><div><p class="student-label">Acompanhamento</p><h2 id="progressTitle">Seu progresso</h2></div></div>
+      <div id="progressList" class="progress-list"></div>
+    </article>
+    <article class="home-panel">
+      <div class="student-section-header compact"><div><p class="student-label">Organização</p><h2>Visão rápida</h2></div></div>
+      <div id="organizeStats" class="stats-grid"></div>
+    </article>
+  </div>
+</section>
 
-<section class="student-section" aria-labelledby="suggestionsTitle"><div class="container"><div class="student-section-header"><div><p class="student-label">Inteligência</p><h2 id="suggestionsTitle">Sugestões para você</h2><p>Recomendações baseadas apenas no estado que já existe no Nhimy.</p></div></div><div id="suggestionsGrid" class="suggestions-grid"><a class="suggestion-card" href="/estudar/"><span class="suggestion-icon">✨</span><span><strong>Tudo pronto para começar</strong><small>Escolhe uma área e continua o teu fluxo.</small></span><span>→</span></a></div></div></section>
+<section class="student-section" aria-labelledby="actionPlanTitle">
+  <div class="container">
+    <div class="student-section-header"><div><p class="student-label">Integração</p><h2 id="actionPlanTitle">Plano de ação</h2><p>O Nhimy conecta o que você está estudando, produzindo e organizando.</p></div></div>
+    <div id="actionPlan" class="action-plan" aria-live="polite"></div>
+  </div>
+</section>
 
-<section class="student-section tools-preview" aria-labelledby="toolsTitle"><div class="container"><div class="student-section-header"><div><p class="student-label">Ferramentas rápidas</p><h2 id="toolsTitle">Resolva sem sair do fluxo</h2><p>Algumas utilidades já disponíveis no Nhimy.</p></div><a class="tools-link" href="/ferramentas/">Ver todas →</a></div><div class="quick-tools-grid"><a href="/estudar/resumir/">Resumo de texto</a><a href="/ferramentas/#tool-pdf">PDF</a><a href="/ferramentas/#tool-converter">Converter</a><a href="/ferramentas/#tool-texto">Texto</a><a href="/ferramentas/#tool-imagem">Imagem</a><a href="/ferramentas/">Outros…</a></div></div></section>
+<section class="student-section" aria-labelledby="suggestionsTitle">
+  <div class="container">
+    <div class="student-section-header"><div><p class="student-label">Inteligência</p><h2 id="suggestionsTitle">Sugestões para você</h2><p>Recomendações baseadas apenas no estado que já existe no Nhimy.</p></div></div>
+    <div id="suggestionsGrid" class="suggestions-grid"></div>
+  </div>
+</section>
+
+<section class="student-section tools-preview" aria-labelledby="toolsTitle">
+  <div class="container">
+    <div class="student-section-header"><div><p class="student-label">Ferramentas rápidas</p><h2 id="toolsTitle">Resolva sem sair do fluxo</h2><p>Algumas utilidades já disponíveis no Nhimy.</p></div><a class="tools-link" href="/ferramentas/">Ver todas →</a></div>
+    <div class="quick-tools-grid">
+      <a href="/estudar/resumir/">Resumo de texto</a>
+      <a href="/ferramentas/#tool-pdf">PDF</a>
+      <a href="/ferramentas/#tool-converter">Converter</a>
+      <a href="/ferramentas/#tool-texto">Texto</a>
+      <a href="/ferramentas/#tool-imagem">Imagem</a>
+      <a href="/ferramentas/">Outros…</a>
+    </div>
+  </div>
+</section>
 </main>
 
-<div id="notificationPanel" class="notification-panel" hidden role="dialog" aria-labelledby="notificationTitle"><div class="notification-head"><h2 id="notificationTitle">Notificações</h2><button id="closeNotifications" type="button" aria-label="Fechar">×</button></div><div id="notificationList"><p class="notification-empty">Nenhuma notificação nova.</p></div></div>
-
-<nav class="mobile-bottom-nav" aria-label="Acesso rápido"><a href="/" class="active" aria-current="page"><span aria-hidden="true">⌂</span><small>Início</small></a><a href="/estudar/"><span aria-hidden="true">📚</span><small>Estudar</small></a><a href="/trabalhos/"><span aria-hidden="true">📝</span><small>Trabalhos</small></a><a href="/organizar/"><span aria-hidden="true">📅</span><small>Organizar</small></a></nav>
+<div id="notificationPanel" class="notification-panel" hidden role="dialog" aria-labelledby="notificationTitle">
+  <div class="notification-head"><h2 id="notificationTitle">Notificações</h2><button id="closeNotifications" type="button" aria-label="Fechar">×</button></div>
+  <div id="notificationList"></div>
+</div>
 
 <footer class="site-footer"><div class="container footer-content"><div><strong>Nhimy Estudante</strong><p>Estudar → Fazer → Organizar → Entregar.</p></div><div class="footer-links"><a href="/estudar/">Estudar</a><a href="/trabalhos/">Trabalhos</a><a href="/organizar/">Organizar</a><a href="/biblioteca/">Biblioteca</a><a href="/ferramentas/">Ferramentas</a><a href="/perfil/">Perfil</a><a href="/entrar/">Entrar</a></div><div class="footer-copy"><p>© 2026 Nhimy.</p></div></div></footer>
+
+<nav class="mobile-bottom-nav" aria-label="Navegação principal (mobile)">
+  <a href="/" class="active"><span>🏠</span><small>Início</small></a>
+  <a href="/estudar/"><span>📚</span><small>Estudar</small></a>
+  <a href="/trabalhos/"><span>📝</span><small>Trabalhos</small></a>
+  <a href="/organizar/"><span>📅</span><small>Organizar</small></a>
+  <a href="/ferramentas/"><span>🧰</span><small>Ferramentas</small></a>
+</nav>
+
 <script src="/intro.js"></script>
+<script type="module" src="/js/ui/theme.js"></script>
+<script type="module" src="/js/ui/navigation.js"></script>
+<script type="module" src="/js/core/home/index.js"></script>
 </body>
 </html>
