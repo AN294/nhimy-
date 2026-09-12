@@ -5,3 +5,4 @@ dev-backups/
 # Backups internos de desenvolvimento
 *.before-*
 *.bak
+.data/
